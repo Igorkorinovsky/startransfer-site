@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Star Transfer — трансфери по Україні та Європі</title>
-<meta name="description" content="Трансфери з аеропортів, міжміське та міжнародне таксі. Комфортні авто, фіксована ціна, замовлення за 1 хвилину.">
+<title>Star Transfers</title>
 <style>
 :root{--bg:#07090f;--panel:#0f131c;--line:#232a38;--text:#eef0f4;--muted:#9aa3b2;--gold:#d8c39a;--gold-d:#b89d6a}
 *{box-sizing:border-box;margin:0}
@@ -15,111 +14,188 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 header{position:sticky;top:0;z-index:10;background:rgba(7,9,15,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.logo{font-family:Georgia,serif;font-size:20px;letter-spacing:.12em;color:var(--gold)}
-nav{display:flex;gap:22px;font-size:15px}
-nav a{color:var(--muted)}nav a:hover{color:var(--text)}
-.tel{font-weight:600}
-.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:80px 20px;
-background:
-radial-gradient(1.2px 1.2px at 12% 18%,#fff 50%,transparent),radial-gradient(1px 1px at 28% 62%,#fff 50%,transparent),
-radial-gradient(1.5px 1.5px at 44% 24%,#fff 50%,transparent),radial-gradient(1px 1px at 63% 74%,#fff 50%,transparent),
-radial-gradient(1.2px 1.2px at 78% 16%,#fff 50%,transparent),radial-gradient(1px 1px at 91% 52%,#fff 50%,transparent),
-radial-gradient(1px 1px at 6% 84%,#fff 50%,transparent),radial-gradient(1.4px 1.4px at 54% 90%,#fff 50%,transparent),
-radial-gradient(ellipse at 50% 120%,#1b2540 0,transparent 60%),var(--bg)}
-.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(34px,6vw,64px);line-height:1.1;max-width:14em;margin:0 auto 18px}
-.hero p{color:var(--muted);font-size:clamp(17px,2.2vw,21px);max-width:34em;margin:0 auto 32px}
+.logo{font-family:Georgia,serif;font-size:20px;letter-spacing:.1em;color:var(--gold)}
+nav{display:flex;gap:22px;font-size:15px}nav a,.lang button{color:var(--muted)}nav a:hover{color:var(--text)}
+.lang{display:flex;gap:4px}.lang button{background:none;border:0;font:inherit;font-size:14px;padding:4px 7px;cursor:pointer;border-radius:6px}
+.lang button.on{color:var(--gold);font-weight:700}
+.tel{font-weight:600;white-space:nowrap}
+.hero{position:relative;overflow:hidden;min-height:88vh;display:grid;place-items:center;text-align:center;padding:70px 20px;background:radial-gradient(ellipse at 50% 0,#2a3858 0,transparent 55%),radial-gradient(ellipse at 50% 120%,#2f416b 0,transparent 60%),linear-gradient(180deg,#0f1628,#18213a)}
+#sky{position:absolute;inset:0;width:100%;height:100%}
+.hero>div{position:relative}
+.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(34px,6vw,62px);line-height:1.1;max-width:14em;margin:0 auto 18px}
+.hero p{color:var(--muted);font-size:clamp(17px,2.2vw,21px);max-width:34em;margin:0 auto 30px}
 .btn{display:inline-block;background:linear-gradient(180deg,var(--gold),var(--gold-d));color:#15120b;font-weight:700;padding:15px 34px;border-radius:999px}
 .btn:hover{filter:brightness(1.08)}
-.chat{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
-.chat a{border:1px solid var(--line);border-radius:999px;padding:8px 18px;color:var(--muted);font-size:15px}
-.chat a:hover{color:var(--text);border-color:var(--gold)}
+.chat{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.chat a{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;transition:transform .15s;box-shadow:0 4px 10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+.chat a:hover{transform:translateY(-3px)}
+.chat svg{width:30px;height:30px}
+.wa{background:linear-gradient(145deg,#3ee77c,#10b04f)}
+.vb{background:linear-gradient(145deg,#9382ff,#5a48c8)}
+.tg{background:linear-gradient(145deg,#3bb9f4,#1a8ed8)}
+.ig{background:linear-gradient(145deg,#ff6277,#e0304c)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:40px auto 0}
+.ph{aspect-ratio:4/3;border-radius:16px;border:1px solid var(--line);background:linear-gradient(135deg,#141a27,#0b0e16) center/cover no-repeat}
 section{padding:84px 0}
 h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);margin-bottom:12px}
-.lead{color:var(--muted);max-width:40em;margin-bottom:40px}
+.lead{color:var(--muted);max-width:40em;margin-bottom:36px}
 .about{background:var(--panel)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:8px}
-.facts h3{font-size:18px;margin-bottom:6px;color:var(--gold)}
-.facts p{color:var(--muted);font-size:15px}
+.about p{color:var(--muted);max-width:52em;margin-bottom:16px}
 .routes{width:100%;border-collapse:collapse}
 .routes th,.routes td{text-align:left;padding:16px 10px;border-bottom:1px solid var(--line)}
 .routes th{color:var(--muted);font-weight:500;font-size:14px}
 .routes td:last-child{color:var(--gold);white-space:nowrap}
-.scroll{overflow-x:auto}
-.note{color:var(--muted);font-size:14px;margin-top:14px}
+.scroll{overflow-x:auto}.note{color:var(--muted);font-size:14px;margin-top:14px}
 .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.car{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.car .ph{aspect-ratio:4/3;display:grid;place-items:center;color:#4a5366;font-size:14px;background:linear-gradient(135deg,#141a27,#0b0e16)}
-.car div:last-child{padding:18px}
-.car h3{font-size:19px;margin-bottom:4px}
-.car p{color:var(--muted);font-size:15px}
-.contacts{background:var(--panel);text-align:center}
-.contacts .lead{margin-inline:auto}
+.car{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.car .ph{border:0;border-radius:0}.car p{padding:16px 18px;font-weight:600}
+.contacts{background:var(--panel);text-align:center}.contacts .lead{margin-inline:auto}
 .big{font-size:clamp(26px,5vw,42px);font-weight:600;display:block;margin:6px 0 26px}
 footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-.fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--gold);color:#15120b;display:grid;place-items:center;font-size:24px;box-shadow:0 6px 24px rgba(0,0,0,.5)}
-@media(max-width:760px){nav{display:none}header .wrap{height:58px}section{padding:60px 0}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.fab{position:fixed;right:18px;bottom:18px;z-index:21;width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;background:var(--gold);color:#15120b;display:grid;place-items:center;font-size:24px;box-shadow:0 6px 24px rgba(0,0,0,.5);transition:background .2s}
+.fab.open{background:#000;color:#fff}
+.pop{position:fixed;right:18px;bottom:86px;z-index:21;width:270px;background:#fff;color:#15120b;border-radius:14px;padding:8px 0;box-shadow:0 10px 36px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s}
+.pop.on{opacity:1;visibility:visible;transform:none}
+.pop:after{content:"";position:absolute;right:28px;bottom:-8px;border:8px solid transparent;border-bottom:0;border-top-color:#fff}
+.it{display:flex;align-items:center;gap:14px;padding:10px 18px}.it:hover{background:#f2f3f6}
+.it b{display:block;font-weight:500;font-size:17px;line-height:1.25}.it small{color:#7b8190;font-size:15px}
+.b{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;flex:none}.b svg{width:28px;height:28px}
+.call{background:linear-gradient(145deg,#4fd08a,#1f9d5c)}.call svg{width:48px;height:48px}
+#toast{position:fixed;right:88px;bottom:26px;z-index:20;background:var(--panel);border:1px solid var(--gold);color:var(--text);padding:12px 18px;border-radius:12px;opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none}
+#toast.on{opacity:1;transform:none}
+@media(max-width:760px){nav{display:none}.tel{font-size:14px}section{padding:60px 0}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-ph" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 8.2c.3-.3.8-.2 1 .2l.6 1.1c.2.3.1.7-.2.9l-.5.4c.5 1 1.3 1.8 2.3 2.3l.4-.5c.2-.3.6-.4.9-.2l1.1.6c.4.2.5.7.2 1l-.6.7c-.4.4-1 .6-1.5.4-2.6-.9-4.3-2.6-5.2-5.2-.2-.5 0-1.1.4-1.5z"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path fill="#fff" d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><use href="#i-ph" style="color:#12b350" transform="translate(-3.6 -3.6) scale(1.3)"/></symbol>
+<symbol id="i-vb" viewBox="0 0 24 24"><path fill="#fff" d="M12 3C7 3 4 5.5 4 10c0 2.5 1 4 2.5 5v3.5l3-2.2c.8.2 1.6.2 2.5.2 5 0 8-2.5 8-6.5S17 3 12 3z"/><use href="#i-ph" style="color:#5a48c8" transform="translate(-3.6 -3.6) scale(1.3)"/><g fill="none" stroke="#5a48c8" stroke-width="1.1" stroke-linecap="round"><path d="M14.2 6.6a3.4 3.4 0 0 1 3.2 3.2"/><path d="M14.4 8.4a1.7 1.7 0 0 1 1.3 1.3"/></g></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24"><path fill="#fff" d="M20.8 4.4 3.4 11.2l5.1 1.7 2 5.6 3-3.3 5 3.6z"/><path d="M8.5 12.9 19 6.5" stroke="#2599dd" stroke-width="1" fill="none"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="5"/><circle cx="12" cy="12" r="3.9"/></g><circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/></symbol>
+</svg>
 <header><div class="wrap">
-<a class="logo" href="#top">Star Transfer</a>
-<nav aria-label="Меню"><a href="#about">Про нас</a><a href="#routes">Маршрути</a><a href="#fleet">Автопарк</a><a href="#contacts">Контакти</a></nav>
-<a class="tel" href="tel:+380000000000">+38 0XX XXX XX XX</a>
+<a class="logo" href="#top">Star Transfers</a>
+<nav><a href="#about" data-i="n1"></a><a href="#routes" data-i="n2"></a><a href="#fleet" data-i="n3"></a><a href="#contacts" data-i="n4"></a></nav>
+<div class="lang"><button data-l="uk">UA</button><button data-l="ru">RU</button><button data-l="en">EN</button></div>
+<a class="tel" href="tel:+380688057132">+38 068 805 71 32</a>
 </div></header>
-
 <main id="top">
-<div class="hero"><div>
-<h1>Сервіс преміальних поїздок по Україні та Європі</h1>
-<p>Трансфери з аеропортів, міжміське та міжнародне таксі. Ціна відома до поїздки.</p>
-<a class="btn" href="#contacts">Забронювати</a>
-<div class="chat">
-<a href="https://wa.me/380000000000">WhatsApp</a><a href="viber://chat?number=%2B380000000000">Viber</a><a href="https://t.me/username">Telegram</a><a href="https://instagram.com/username">Instagram</a>
-</div></div></div>
+<div class="hero"><canvas id="sky"></canvas><div>
+<h1 data-i="h1"></h1><p data-i="sub"></p>
+<a class="btn" href="#contacts" data-i="book"></a>
+<div class="chat"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startranfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
+<div class="shots"><div class="ph" style="background-image:url(images/car1.jpg)"></div><div class="ph" style="background-image:url(images/car2.jpg)"></div></div>
+</div></div>
 
 <section id="about" class="about"><div class="wrap">
-<h2>Про нас</h2>
-<p class="lead">Короткий текст про сервіс: скільки років працюєте, які поїздки робите, чим відрізняєтесь.</p>
-<div class="facts">
-<div><h3>Зустріч у залі прильоту</h3><p>Водій стежить за рейсом і чекає з табличкою, навіть якщо літак затримали.</p></div>
-<div><h3>Фіксована ціна</h3><p>Вартість узгоджуємо заздалегідь. Без доплат за багаж і нічний час.</p></div>
-<div><h3>Комфортні авто</h3><p>Чисті автомобілі бізнес-класу, вода в салоні, досвідчені водії.</p></div>
-<div><h3>Працюємо цілодобово</h3><p>Відповідаємо в месенджерах і по телефону в будь-який час.</p></div>
-</div></div></section>
+<h2 data-i="n1"></h2><p data-i="a1"></p><p data-i="a2"></p><p data-i="a3"></p>
+</div></section>
 
 <section id="routes"><div class="wrap">
-<h2>Маршрути трансферу</h2>
-<p class="lead">Популярні напрямки. Потрібного немає в списку? Напишіть, і ми порахуємо.</p>
+<h2 data-i="rt"></h2><p class="lead" data-i="rl"></p>
 <div class="scroll"><table class="routes">
-<thead><tr><th>Маршрут</th><th>Відстань</th><th>Від</th></tr></thead>
+<thead><tr><th data-i="t1"></th><th data-i="t2"></th><th data-i="t3"></th></tr></thead>
 <tbody>
-<tr><td>Аеропорт Львів — центр міста</td><td>8 км</td><td>000 грн</td></tr>
-<tr><td>Львів — Краків</td><td>330 км</td><td>000 грн</td></tr>
-<tr><td>Львів — Київ</td><td>540 км</td><td>000 грн</td></tr>
-<tr><td>Київ — аеропорт Бориспіль</td><td>35 км</td><td>000 грн</td></tr>
+<tr><td data-i="r1"></td><td>8 km</td><td>000 UAH</td></tr>
+<tr><td data-i="r2"></td><td>330 km</td><td>000 UAH</td></tr>
+<tr><td data-i="r3"></td><td>540 km</td><td>000 UAH</td></tr>
+<tr><td data-i="r4"></td><td>35 km</td><td>000 UAH</td></tr>
+<tr><td data-i="r5"></td><td>390 km</td><td>000 UAH</td></tr>
+<tr><td data-i="r6"></td><td>870 km</td><td>000 UAH</td></tr>
 </tbody></table></div>
-<p class="note">Ціни орієнтовні, точну вартість назвемо при бронюванні.</p>
+<p class="note" data-i="rn"></p>
 </div></section>
 
 <section id="fleet"><div class="wrap">
-<h2>Наш автопарк</h2>
-<p class="lead">Оберіть авто під кількість пасажирів і багажу.</p>
+<h2 data-i="n3"></h2><p class="lead" data-i="fl"></p>
 <div class="fleet">
-<article class="car"><div class="ph">Фото авто</div><div><h3>Седан бізнес-класу</h3><p>до 3 пасажирів</p></div></article>
-<article class="car"><div class="ph">Фото авто</div><div><h3>Мінівен</h3><p>до 7 пасажирів, багато місця для багажу</p></div></article>
-<article class="car"><div class="ph">Фото авто</div><div><h3>Преміум-седан</h3><p>до 3 пасажирів, для особливих випадків</p></div></article>
+<article class="car"><div class="ph"></div><p data-i="c1"></p></article>
+<article class="car"><div class="ph"></div><p data-i="c2"></p></article>
+<article class="car"><div class="ph"></div><p data-i="c3"></p></article>
 </div></div></section>
 
 <section id="contacts" class="contacts"><div class="wrap">
-<h2>Контакти</h2>
-<p class="lead">Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.</p>
-<a class="big" href="tel:+380000000000">+38 0XX XXX XX XX</a>
-<div class="chat" style="margin-top:0">
-<a href="https://wa.me/380000000000">WhatsApp</a><a href="viber://chat?number=%2B380000000000">Viber</a><a href="https://t.me/username">Telegram</a><a href="https://instagram.com/username">Instagram</a>
-</div></div></section>
+<h2 data-i="n4"></h2><p class="lead" data-i="cl"></p>
+<a class="big" href="tel:+380688057132">+38 068 805 71 32</a>
+<div class="chat" style="margin-top:0"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startranfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
+</div></section>
 </main>
+<footer><div class="wrap">© 2026 Star Transfers</div></footer>
+<div id="toast" role="status"></div>
+<div class="pop" id="pop"><a class="it" href="https://wa.me/380688057132" target="_blank" rel="noopener"><span class="b wa"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>+38 068 805 71 32</small></span></a><a class="it" href="viber://chat?number=%2B380688057132" target="_blank" rel="noopener"><span class="b vb"><svg><use href="#i-vb"/></svg></span><span><b>Viber</b><small>+38 068 805 71 32</small></span></a><a class="it" href="https://t.me/startranfers" target="_blank" rel="noopener"><span class="b tg"><svg><use href="#i-tg"/></svg></span><span><b>Telegram</b><small>@startranfers</small></span></a><a class="it" href="tel:+380688057132"><span class="b call"><svg><use href="#i-ph"/></svg></span><span><b data-i="dc"></b><small>+38 068 805 71 32</small></span></a></div>
+<button class="fab" id="fab" aria-label="Contacts" aria-expanded="false" aria-controls="pop">&#9742;</button>
 
-<footer><div class="wrap">© 2026 Star Transfer. Усі права захищено.</div></footer>
-<a class="fab" href="tel:+380000000000" aria-label="Зателефонувати">&#9742;</a>
+<script>
+const T={
+uk:{n1:"Про нас",n2:"Маршрути",n3:"Автопарк",n4:"Контакти",
+h1:"Сервіс преміальних поїздок по Україні та Європі",sub:"Трансфери з аеропортів, міжміське та міжнародне таксі. Ціна відома до поїздки.",book:"Забронювати",
+a1:"Star Transfers — сервіс преміальних трансферів по Україні та Європі, який працює на ринку з 2020 року. Ми спеціалізуємось на індивідуальних поїздках без посередників, забезпечуючи високий рівень комфорту, безпеки та пунктуальності. За цей час виконано понад 5000 успішних трансферів, включаючи міжнародні маршрути до Польщі, Молдови, Австрії, Угорщини та інших країн Європи.",
+a2:"Ми працюємо з власним автопарком сучасних автомобілів преміум-класу (Mercedes-Benz, Audi, Skoda) та командою досвідчених водіїв із практикою міжнародних перевезень. Кожна поїздка планується індивідуально: узгоджується маршрут, час виїзду, зупинки та додаткові побажання клієнта. Вартість трансферу фіксується заздалегідь без прихованих платежів.",
+a3:"Компанія здійснює діяльність офіційно та має всі необхідні документи для надання послуг пасажирських перевезень.",
+rt:"Маршрути трансферу",rl:"Популярні напрямки. Потрібного немає в списку? Напишіть, і ми порахуємо.",t1:"Маршрут",t2:"Відстань",t3:"Від",
+r1:"Аеропорт Львів — центр міста",r2:"Львів — Краків",r3:"Львів — Київ",r4:"Київ — аеропорт Бориспіль",r5:"Львів — Варшава",r6:"Львів — Прага",
+rn:"Ціни орієнтовні, точну вартість назвемо при бронюванні.",fl:"Оберіть авто під кількість пасажирів і багажу.",
+c1:"Седан бізнес-класу, до 3 пасажирів",c2:"Мінівен, до 7 пасажирів",c3:"Преміум-седан, до 3 пасажирів",
+cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон"},
+ru:{n1:"О нас",n2:"Маршруты",n3:"Автопарк",n4:"Контакты",
+h1:"Сервис премиальных поездок по Украине и Европе",sub:"Трансферы из аэропортов, междугороднее и международное такси. Цена известна до поездки.",book:"Забронировать",
+a1:"Star Transfers — сервис премиальных трансферов по Украине и Европе, работающий на рынке с 2020 года. Мы специализируемся на индивидуальных поездках без посредников, обеспечивая высокий уровень комфорта, безопасности и пунктуальности. За это время выполнено более 5000 успешных трансферов, включая международные маршруты в Польшу, Молдову, Австрию, Венгрию и другие страны Европы.",
+a2:"Мы работаем с собственным автопарком современных автомобилей премиум-класса (Mercedes-Benz, Audi, Skoda) и командой опытных водителей с практикой международных перевозок. Каждая поездка планируется индивидуально: согласовываются маршрут, время выезда, остановки и дополнительные пожелания клиента. Стоимость трансфера фиксируется заранее, без скрытых платежей.",
+a3:"Компания работает официально и имеет все необходимые документы для оказания услуг пассажирских перевозок.",
+rt:"Маршруты трансфера",rl:"Популярные направления. Нужного нет в списке? Напишите, и мы рассчитаем.",t1:"Маршрут",t2:"Расстояние",t3:"От",
+r1:"Аэропорт Львов — центр города",r2:"Львов — Краков",r3:"Львов — Киев",r4:"Киев — аэропорт Борисполь",r5:"Львов — Варшава",r6:"Львов — Прага",
+rn:"Цены ориентировочные, точную стоимость назовём при бронировании.",fl:"Выберите авто под количество пассажиров и багажа.",
+c1:"Седан бизнес-класса, до 3 пассажиров",c2:"Минивэн, до 7 пассажиров",c3:"Премиум-седан, до 3 пассажиров",
+cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон"},
+en:{n1:"About us",n2:"Routes",n3:"Fleet",n4:"Contacts",
+h1:"Premium rides across Ukraine and Europe",sub:"Airport transfers, intercity and international taxi. The price is fixed before the trip.",book:"Book now",
+a1:"Star Transfers is a premium transfer service across Ukraine and Europe, operating since 2020. We specialise in private trips without intermediaries, delivering a high level of comfort, safety and punctuality. Over this time we have completed more than 5,000 successful transfers, including international routes to Poland, Moldova, Austria, Hungary and other European countries.",
+a2:"We operate our own fleet of modern premium cars (Mercedes-Benz, Audi, Skoda) with experienced drivers who have international transport experience. Every trip is planned individually: route, departure time, stops and any extra wishes are agreed in advance. The price is fixed beforehand with no hidden fees.",
+a3:"The company operates officially and holds all documents required for passenger transport services.",
+rt:"Transfer routes",rl:"Popular destinations. Not on the list? Message us and we will calculate it.",t1:"Route",t2:"Distance",t3:"From",
+r1:"Lviv airport — city centre",r2:"Lviv — Kraków",r3:"Lviv — Kyiv",r4:"Kyiv — Boryspil airport",r5:"Lviv — Warsaw",r6:"Lviv — Prague",
+rn:"Prices are approximate; we confirm the exact cost when you book.",fl:"Choose a car for your passengers and luggage.",
+c1:"Business-class sedan, up to 3 passengers",c2:"Minivan, up to 7 passengers",c3:"Premium sedan, up to 3 passengers",
+cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone"}};
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
+document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+document.title="Star Transfers — "+T[l].h1;
+try{localStorage.setItem('lang',l)}catch(e){}}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+let L='uk';try{L=localStorage.getItem('lang')||''}catch(e){}
+if(!T[L]){const n=(navigator.language||'uk').slice(0,2);L=T[n]?n:'uk'}
+setLang(L);
+// phone links: on desktop copy the number, on phones dial
+const toast=document.getElementById('toast');let tt;
+function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),3000)}
+document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',e=>{
+if(!matchMedia('(pointer:fine)').matches)return;e.preventDefault();
+const n='+38 068 805 71 32',t=T[document.documentElement.lang];
+(navigator.clipboard?navigator.clipboard.writeText('+380688057132'):Promise.reject()).then(()=>say(t.cp+': '+n),()=>say(t.ph+': '+n))}));
+// contact menu
+const fab=document.getElementById('fab'),pop=document.getElementById('pop');
+function menu(o){pop.classList.toggle('on',o);fab.classList.toggle('open',o);fab.setAttribute('aria-expanded',o);fab.innerHTML=o?'&#10005;':'&#9742;'}
+fab.onclick=e=>{e.stopPropagation();menu(!pop.classList.contains('on'))};
+document.addEventListener('click',e=>{if(!pop.contains(e.target))menu(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+// animated starry sky
+const cv=document.getElementById('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const C=['#ffffff','#ffffff','#ffffff','#cfdcff','#ffe3c2','#ff9d5c'];
+let S=[],W,H,M=null;
+function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+S=Array.from({length:Math.min(1800,Math.round(W*H/1300))},()=>{const r=Math.random()**2*1.7+.3;
+return{x:Math.random()*W,y:Math.random()*H,r,c:C[Math.random()*C.length|0],p:Math.random()*6.28,k:Math.random()*1.5+.6,v:r*.12+.02}})}
+function draw(t){cx.clearRect(0,0,W,H);
+for(const s of S){if(!still){s.x-=s.v;s.y+=s.v*.25;if(s.x<-2)s.x=W+2;if(s.y>H+2)s.y=-2}
+cx.globalAlpha=still?.85:.5+.5*Math.sin(t/1000*s.k+s.p);
+cx.fillStyle=s.c;cx.beginPath();cx.arc(s.x,s.y,s.r,0,6.28);cx.fill()}
+if(!still){
+if(!M&&Math.random()<.005)M={x:Math.random()*W*.8,y:Math.random()*H*.5,l:0};
+if(M){const dx=7,dy=3;M.x+=dx;M.y+=dy;M.l++;cx.globalAlpha=Math.max(0,1-M.l/40);cx.strokeStyle='#fff';cx.lineWidth=1.5;cx.beginPath();cx.moveTo(M.x,M.y);cx.lineTo(M.x-dx*6,M.y-dy*6);cx.stroke();if(M.l>40)M=null}
+requestAnimationFrame(draw)}}
+init();requestAnimationFrame(draw);addEventListener('resize',()=>{init();if(still)draw(0)});
+</script>
 </body>
 </html>
