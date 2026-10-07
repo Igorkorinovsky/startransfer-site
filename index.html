@@ -46,7 +46,7 @@ h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);marg
 .routes th{color:var(--muted);font-weight:500;font-size:14px}
 .routes td:last-child{color:var(--gold);white-space:nowrap}
 .scroll{overflow-x:auto}.note{color:var(--muted);font-size:14px;margin-top:14px}
-.fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
 .car{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .car .ph{border:0;border-radius:0}.car p{padding:16px 18px;font-weight:600}
 .contacts{background:var(--panel);text-align:center}.contacts .lead{margin-inline:auto}
@@ -63,6 +63,23 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px;border
 .call{background:linear-gradient(145deg,#4fd08a,#1f9d5c)}.call svg{width:48px;height:48px}
 #toast{position:fixed;right:88px;bottom:26px;z-index:20;background:var(--panel);border:1px solid var(--gold);color:var(--text);padding:12px 18px;border-radius:12px;opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none}
 #toast.on{opacity:1;transform:none}
+.car{cursor:pointer;transition:transform .2s,border-color .2s}.car:hover{transform:translateY(-4px);border-color:var(--gold-d)}.car.empty{cursor:default}.car.empty:hover{transform:none;border-color:var(--line)}
+.car .ph{position:relative}.car .cnt{position:absolute;right:10px;bottom:10px;background:rgba(7,9,15,.8);color:var(--gold);font-size:13px;padding:3px 10px;border-radius:999px}
+.gal{position:fixed;inset:0;z-index:30;background:rgba(5,7,12,.96);overflow-y:auto;opacity:0;visibility:hidden;transition:.25s}
+.gal.on{opacity:1;visibility:visible}
+.gal .in{max-width:1100px;margin:0 auto;padding:70px 20px 40px}
+.gal h3{font-family:Georgia,serif;font-weight:400;font-size:clamp(22px,3.5vw,32px);margin-bottom:20px}
+.gg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gg img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;cursor:zoom-in;display:block;background:var(--panel);transition:filter .2s}
+.gg img:hover{filter:brightness(1.12)}
+.gg img:first-child{grid-column:span 2;grid-row:span 2}
+.x,.nv{position:fixed;z-index:32;background:rgba(15,19,28,.85);color:var(--text);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;border-radius:50%;width:44px;height:44px;font-size:22px}
+.x:hover,.nv:hover{border-color:var(--gold);color:var(--gold)}
+.x{top:16px;right:16px}.nv{top:50%;margin-top:-22px}.pv{left:16px}.nx{right:16px}
+.lb{position:fixed;inset:0;z-index:31;background:rgba(0,0,0,.94);display:none;place-items:center;padding:56px 70px}
+.lb.on{display:grid}.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.lb .ct{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);color:var(--muted);font-size:14px}
+@media(max-width:760px){.gg{grid-template-columns:1fr 1fr}.lb{padding:56px 10px}.nv{width:38px;height:38px}.pv{left:6px}.nx{right:6px}}
 @media(max-width:760px){nav{display:none}.tel{font-size:14px}section{padding:60px 0}}
 </style>
 </head>
@@ -84,7 +101,7 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px;border
 <div class="hero"><canvas id="sky"></canvas><div>
 <h1 data-i="h1"></h1><p data-i="sub"></p>
 <a class="btn" href="#contacts" data-i="book"></a>
-<div class="chat"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startranfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
+<div class="chat"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startransfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
 <div class="shots"><div class="ph" style="background-image:url(images/car1.jpg)"></div><div class="ph" style="background-image:url(images/car2.jpg)"></div></div>
 </div></div>
 
@@ -110,20 +127,23 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px;border
 <section id="fleet"><div class="wrap">
 <h2 data-i="n3"></h2><p class="lead" data-i="fl"></p>
 <div class="fleet">
-<article class="car"><div class="ph"></div><p data-i="c1"></p></article>
-<article class="car"><div class="ph"></div><p data-i="c2"></p></article>
-<article class="car"><div class="ph"></div><p data-i="c3"></p></article>
+<article class="car empty" data-car="0" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/sedan/1.jpg"></div><p data-i="c1"></p></article>
+<article class="car empty" data-car="1" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/minivan/1.jpg"></div><p data-i="c2"></p></article>
+<article class="car empty" data-car="2" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/premium/1.jpg"></div><p data-i="c3"></p></article>
+<article class="car empty" data-car="3" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/passat/1.jpg"></div><p data-i="c4"></p></article>
 </div></div></section>
 
 <section id="contacts" class="contacts"><div class="wrap">
 <h2 data-i="n4"></h2><p class="lead" data-i="cl"></p>
 <a class="big" href="tel:+380688057132">+38 068 805 71 32</a>
-<div class="chat" style="margin-top:0"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startranfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
+<div class="chat" style="margin-top:0"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startransfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
 </div></section>
 </main>
 <footer><div class="wrap">© 2026 Star Transfers</div></footer>
+<div class="gal" id="gal" role="dialog" aria-modal="true"><button class="x" id="gx" aria-label="Close">&#10005;</button><div class="in"><h3 id="gt"></h3><div class="gg" id="gg"></div></div></div>
+<div class="lb" id="lb"><button class="x" id="lx" aria-label="Close">&#10005;</button><button class="nv pv" id="lp" aria-label="Previous">&#8249;</button><img id="li" alt=""><button class="nv nx" id="ln" aria-label="Next">&#8250;</button><div class="ct" id="lc"></div></div>
 <div id="toast" role="status"></div>
-<div class="pop" id="pop"><a class="it" href="https://wa.me/380688057132" target="_blank" rel="noopener"><span class="b wa"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>+38 068 805 71 32</small></span></a><a class="it" href="viber://chat?number=%2B380688057132" target="_blank" rel="noopener"><span class="b vb"><svg><use href="#i-vb"/></svg></span><span><b>Viber</b><small>+38 068 805 71 32</small></span></a><a class="it" href="https://t.me/startranfers" target="_blank" rel="noopener"><span class="b tg"><svg><use href="#i-tg"/></svg></span><span><b>Telegram</b><small>@startranfers</small></span></a><a class="it" href="tel:+380688057132"><span class="b call"><svg><use href="#i-ph"/></svg></span><span><b data-i="dc"></b><small>+38 068 805 71 32</small></span></a></div>
+<div class="pop" id="pop"><a class="it" href="https://wa.me/380688057132" target="_blank" rel="noopener"><span class="b wa"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>+38 068 805 71 32</small></span></a><a class="it" href="viber://chat?number=%2B380688057132" target="_blank" rel="noopener"><span class="b vb"><svg><use href="#i-vb"/></svg></span><span><b>Viber</b><small>+38 068 805 71 32</small></span></a><a class="it" href="https://t.me/startransfers" target="_blank" rel="noopener"><span class="b tg"><svg><use href="#i-tg"/></svg></span><span><b>Telegram</b><small>@startransfers</small></span></a><a class="it" href="tel:+380688057132"><span class="b call"><svg><use href="#i-ph"/></svg></span><span><b data-i="dc"></b><small>+38 068 805 71 32</small></span></a></div>
 <button class="fab" id="fab" aria-label="Contacts" aria-expanded="false" aria-controls="pop">&#9742;</button>
 
 <script>
@@ -136,7 +156,7 @@ a3:"Компанія здійснює діяльність офіційно та
 rt:"Маршрути трансферу",rl:"Популярні напрямки. Потрібного немає в списку? Напишіть, і ми порахуємо.",t1:"Маршрут",t2:"Відстань",t3:"Від",
 r1:"Аеропорт Львів — центр міста",r2:"Львів — Краків",r3:"Львів — Київ",r4:"Київ — аеропорт Бориспіль",r5:"Львів — Варшава",r6:"Львів — Прага",
 rn:"Ціни орієнтовні, точну вартість назвемо при бронюванні.",fl:"Оберіть авто під кількість пасажирів і багажу.",
-c1:"Седан бізнес-класу, до 3 пасажирів",c2:"Мінівен, до 7 пасажирів",c3:"Преміум-седан, до 3 пасажирів",
+c1:"Седан бізнес-класу Skoda Superb, до 3 пасажирів",c2:"Мінівен Mercedes-Benz V-Class, до 7 пасажирів",c3:"Преміум-седан Mercedes-Benz E-Class, до 3 пасажирів",c4:"Седан бізнес-класу Volkswagen Passat B8, до 3 пасажирів",
 cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон"},
 ru:{n1:"О нас",n2:"Маршруты",n3:"Автопарк",n4:"Контакты",
 h1:"Сервис премиальных поездок по Украине и Европе",sub:"Трансферы из аэропортов, междугороднее и международное такси. Цена известна до поездки.",book:"Забронировать",
@@ -146,7 +166,7 @@ a3:"Компания работает официально и имеет все 
 rt:"Маршруты трансфера",rl:"Популярные направления. Нужного нет в списке? Напишите, и мы рассчитаем.",t1:"Маршрут",t2:"Расстояние",t3:"От",
 r1:"Аэропорт Львов — центр города",r2:"Львов — Краков",r3:"Львов — Киев",r4:"Киев — аэропорт Борисполь",r5:"Львов — Варшава",r6:"Львов — Прага",
 rn:"Цены ориентировочные, точную стоимость назовём при бронировании.",fl:"Выберите авто под количество пассажиров и багажа.",
-c1:"Седан бизнес-класса, до 3 пассажиров",c2:"Минивэн, до 7 пассажиров",c3:"Премиум-седан, до 3 пассажиров",
+c1:"Седан бизнес-класса Skoda Superb, до 3 пассажиров",c2:"Минивэн Mercedes-Benz V-Class, до 7 пассажиров",c3:"Премиум-седан Mercedes-Benz E-Class, до 3 пассажиров",c4:"Седан бизнес-класса Volkswagen Passat B8, до 3 пассажиров",
 cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон"},
 en:{n1:"About us",n2:"Routes",n3:"Fleet",n4:"Contacts",
 h1:"Premium rides across Ukraine and Europe",sub:"Airport transfers, intercity and international taxi. The price is fixed before the trip.",book:"Book now",
@@ -156,7 +176,7 @@ a3:"The company operates officially and holds all documents required for passeng
 rt:"Transfer routes",rl:"Popular destinations. Not on the list? Message us and we will calculate it.",t1:"Route",t2:"Distance",t3:"From",
 r1:"Lviv airport — city centre",r2:"Lviv — Kraków",r3:"Lviv — Kyiv",r4:"Kyiv — Boryspil airport",r5:"Lviv — Warsaw",r6:"Lviv — Prague",
 rn:"Prices are approximate; we confirm the exact cost when you book.",fl:"Choose a car for your passengers and luggage.",
-c1:"Business-class sedan, up to 3 passengers",c2:"Minivan, up to 7 passengers",c3:"Premium sedan, up to 3 passengers",
+c1:"Business-class Skoda Superb sedan, up to 3 passengers",c2:"Mercedes-Benz V-Class minivan, up to 7 passengers",c3:"Premium Mercedes-Benz E-Class sedan, up to 3 passengers",c4:"Business-class Volkswagen Passat B8 sedan, up to 3 passengers",
 cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone"}};
 function setLang(l){document.documentElement.lang=l;
 document.querySelectorAll('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
@@ -180,6 +200,30 @@ function menu(o){pop.classList.toggle('on',o);fab.classList.toggle('open',o);fab
 fab.onclick=e=>{e.stopPropagation();menu(!pop.classList.contains('on'))};
 document.addEventListener('click',e=>{if(!pop.contains(e.target))menu(false)});
 addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+// fleet gallery: photos are loaded from images/fleet/<car>/1.jpg, 2.jpg ... (only the ones that exist are shown)
+const CARS=[{d:'images/fleet/sedan',k:'c1'},{d:'images/fleet/minivan',k:'c2'},{d:'images/fleet/premium',k:'c3'},{d:'images/fleet/passat',k:'c4'}],MAXP=12;
+const gal=document.getElementById('gal'),gg=document.getElementById('gg'),gt=document.getElementById('gt'),lb=document.getElementById('lb'),li=document.getElementById('li'),lc=document.getElementById('lc');
+let cur=0,list=[],ci=0;
+const probe=u=>new Promise(r=>{const i=new Image();i.onload=()=>r(u);i.onerror=()=>r(null);i.src=u});
+CARS.forEach((c,n)=>Promise.all(Array.from({length:MAXP},(_,i)=>probe(c.d+'/'+(i+1)+'.jpg'))).then(r=>{
+c.p=[];for(const u of r){if(!u)break;c.p.push(u)}
+if(!c.p.length)return;const el=document.querySelector('.car[data-car="'+n+'"]'),ph=el.querySelector('.ph');
+el.classList.remove('empty');ph.style.backgroundImage='url('+c.p[0]+')';
+const b=document.createElement('span');b.className='cnt';b.textContent=c.p.length;ph.appendChild(b)}));
+function openGal(n){const c=CARS[n];if(!c.p||!c.p.length)return;cur=n;
+const t=T[document.documentElement.lang][c.k];gt.textContent=t;
+gg.innerHTML='';c.p.forEach((u,i)=>{const im=new Image();im.src=u;im.alt=t+' — '+(i+1);im.loading='lazy';im.onclick=()=>openLb(i);gg.appendChild(im)});
+gal.classList.add('on');gal.scrollTop=0;document.body.style.overflow='hidden'}
+function closeGal(){gal.classList.remove('on');closeLb();document.body.style.overflow=''}
+function openLb(i){list=CARS[cur].p;ci=(i+list.length)%list.length;li.src=list[ci];li.alt=gt.textContent;lc.textContent=(ci+1)+' / '+list.length;lb.classList.add('on')}
+function closeLb(){lb.classList.remove('on')}
+document.querySelectorAll('.car').forEach(el=>{const go=()=>openGal(+el.dataset.car);el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+document.getElementById('gx').onclick=closeGal;document.getElementById('lx').onclick=closeLb;
+document.getElementById('lp').onclick=()=>openLb(ci-1);document.getElementById('ln').onclick=()=>openLb(ci+1);
+lb.onclick=e=>{if(e.target===lb)closeLb()};
+addEventListener('keydown',e=>{if(lb.classList.contains('on')){if(e.key==='Escape')closeLb();else if(e.key==='ArrowLeft')openLb(ci-1);else if(e.key==='ArrowRight')openLb(ci+1)}else if(gal.classList.contains('on')&&e.key==='Escape')closeGal()});
+let sx=0;lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)openLb(ci+(d<0?1:-1))});
 // animated starry sky
 const cv=document.getElementById('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const C=['#ffffff','#ffffff','#ffffff','#cfdcff','#ffe3c2','#ff9d5c'];
