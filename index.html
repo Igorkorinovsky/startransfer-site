@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Star Transfers — трансфери Львів, Київ, Краків, Варшава, Прага</title>
-<meta name="description" content="Комфортні трансфери зі Львова та Києва: аеропорти, Краків, Варшава, Прага. Mercedes-Benz і Skoda бізнес-класу, до 7 пасажирів. Бронювання у Telegram та Viber.">
+<meta name="description" content="Трансфер з аеропорту та в аеропорт, поїздки зі Львова та Києва: Краків, Варшава, Прага. Mercedes-Benz і Skoda бізнес-класу, до 7 пасажирів. Бронювання у Telegram та Viber.">
 <link rel="canonical" href="https://startransfers.com.ua/">
 <meta name="theme-color" content="#0f1830">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -22,6 +22,68 @@
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://startransfers.com.ua/#org",
+   "name": "Star Transfers",
+   "url": "https://startransfers.com.ua/",
+   "logo": "https://startransfers.com.ua/apple-touch-icon.png",
+   "telephone": "+380688057132",
+   "foundingDate": "2020",
+   "sameAs": [
+    "https://t.me/startransfers",
+    "https://www.instagram.com/star_transfers/"
+   ]
+  },
+  {
+   "@type": "TaxiService",
+   "name": "Star Transfers",
+   "url": "https://startransfers.com.ua/",
+   "image": "https://startransfers.com.ua/images/og.jpg",
+   "description": "Трансфери з аеропортів, міжміське та міжнародне таксі зі Львова та Києва: Краків, Варшава, Прага. Автомобілі Mercedes-Benz, Audi, Skoda.",
+   "serviceType": "Airport transfers, intercity and international taxi",
+   "telephone": "+380688057132",
+   "provider": {
+    "@id": "https://startransfers.com.ua/#org"
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Lviv"
+    },
+    {
+     "@type": "City",
+     "name": "Kyiv"
+    },
+    {
+     "@type": "City",
+     "name": "Kraków"
+    },
+    {
+     "@type": "City",
+     "name": "Warsaw"
+    },
+    {
+     "@type": "City",
+     "name": "Prague"
+    },
+    {
+     "@type": "City",
+     "name": "Budapest"
+    },
+    {
+     "@type": "City",
+     "name": "Katowice"
+    }
+   ]
+  }
+ ]
+}
+</script>
 <style>
 :root{--bg:#0f1830;--panel:#172345;--line:#2a3a63;--text:#eef0f4;--muted:#a9b3c9;--gold:#d8c39a;--gold-d:#b89d6a}
 *{box-sizing:border-box;margin:0}
@@ -63,6 +125,7 @@ h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);marg
 .routes th,.routes td{text-align:left;padding:16px 10px;border-bottom:1px solid var(--line)}
 .routes th{color:var(--muted);font-weight:500;font-size:14px}
 .routes td:last-child{color:var(--gold);white-space:nowrap}
+.aps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.aps li{display:flex;gap:12px;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.aps b{color:var(--gold);font-family:Georgia,serif;letter-spacing:.08em}
 .scroll{overflow-x:auto}.note{color:var(--muted);font-size:14px;margin-top:14px}
 .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
 .car{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -118,48 +181,55 @@ footer{background:#0b1226}
 </svg>
 <header><div class="wrap">
 <a class="logo" href="#top">Star Transfers</a>
-<nav><a href="#about" data-i="n1"></a><a href="#routes" data-i="n2"></a><a href="#fleet" data-i="n3"></a><a href="#contacts" data-i="n4"></a></nav>
+<nav><a href="#about" data-i="n1">Про нас</a><a href="#routes" data-i="n2">Маршрути</a><a href="#fleet" data-i="n3">Автопарк</a><a href="#contacts" data-i="n4">Контакти</a></nav>
 <div class="lang"><button data-l="uk">UA</button><button data-l="ru">RU</button><button data-l="en">EN</button></div>
 <a class="tel" href="tel:+380688057132">+38 068 805 71 32</a>
 </div></header>
 <main id="top">
 <div class="hero"><canvas id="sky"></canvas><div>
-<h1 data-i="h1"></h1><p data-i="sub"></p>
-<a class="btn" href="#contacts" data-i="book"></a>
+<h1 data-i="h1">Сервіс преміальних поїздок по Україні та Європі</h1><p data-i="sub">Трансфери з аеропортів, міжміське та міжнародне таксі. Ціна відома до поїздки.</p>
+<a class="btn" href="#contacts" data-i="book">Забронювати</a>
 <div class="chat"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startransfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
 <div class="shots"><div class="ph" role="img" aria-label="Skoda Superb" style="background-image:url(images/fleet/sedan/1.jpg)"></div><div class="ph" role="img" aria-label="Mercedes-Benz V-Class" style="background-image:url(images/fleet/minivan/1.jpg)"></div></div>
 </div></div>
 
 <section id="about" class="about"><div class="wrap">
-<h2 data-i="n1"></h2><p data-i="a1"></p><p data-i="a2"></p><p data-i="a3"></p>
+<h2 data-i="n1">Про нас</h2><p data-i="a1">Star Transfers — сервіс преміальних трансферів по Україні та Європі, який працює на ринку з 2020 року. Ми спеціалізуємось на індивідуальних поїздках без посередників, забезпечуючи високий рівень комфорту, безпеки та пунктуальності. За цей час виконано понад 5000 успішних трансферів, включаючи міжнародні маршрути до Польщі, Молдови, Австрії, Угорщини та інших країн Європи.</p><p data-i="a2">Ми працюємо з власним автопарком сучасних автомобілів преміум-класу (Mercedes-Benz, Audi, Skoda) та командою досвідчених водіїв із практикою міжнародних перевезень. Кожна поїздка планується індивідуально: узгоджується маршрут, час виїзду, зупинки та додаткові побажання клієнта. Вартість трансферу фіксується заздалегідь без прихованих платежів.</p><p data-i="a3">Компанія здійснює діяльність офіційно та має всі необхідні документи для надання послуг пасажирських перевезень.</p>
+</div></section>
+
+<section id="airports"><div class="wrap">
+<h2 data-i="ap">Трансфер з аеропорту та в аеропорт</h2><p class="lead" data-i="apl">Зустрінемо після прильоту або відвеземо на виліт. Час виїзду й місце зустрічі узгоджуємо індивідуально під ваш рейс, а вартість фіксуємо заздалегідь без прихованих платежів.</p>
+<ul class="aps"><li><b>LWO</b><span data-i="ap1">Львів</span></li><li><b>RZE</b><span data-i="ap2">Жешув</span></li><li><b>KRK</b><span data-i="ap3">Краків</span></li><li><b>WAW</b><span data-i="ap4">Варшава</span></li><li><b>PRG</b><span data-i="ap5">Прага</span></li><li><b>BUD</b><span data-i="ap6">Будапешт</span></li><li><b>KTW</b><span data-i="ap7">Катовіце</span></li></ul>
+<p class="note" data-i="apn">Потрібного аеропорту немає в списку? Напишіть, і ми порахуємо.</p>
 </div></section>
 
 <section id="routes"><div class="wrap">
-<h2 data-i="rt"></h2><p class="lead" data-i="rl"></p>
+<h2 data-i="rt">Маршрути трансферу</h2><p class="lead" data-i="rl">Популярні напрямки. Потрібного немає в списку? Напишіть, і ми порахуємо.</p>
 <div class="scroll"><table class="routes">
-<thead><tr><th data-i="t1"></th><th data-i="t2"></th><th data-i="t3"></th></tr></thead>
+<thead><tr><th data-i="t1">Маршрут</th><th data-i="t2">Відстань</th><th data-i="t3">Час у дорозі</th></tr></thead>
 <tbody>
-<tr><td data-i="r1"></td><td>8 km</td><td data-i="tm1"></td></tr>
-<tr><td data-i="r2"></td><td>330 km</td><td data-i="tm2"></td></tr>
-<tr><td data-i="r3"></td><td>540 km</td><td data-i="tm3"></td></tr>
-<tr><td data-i="r4"></td><td>790 km</td><td data-i="tm4"></td></tr>
-<tr><td data-i="r5"></td><td>390 km</td><td data-i="tm5"></td></tr>
-<tr><td data-i="r6"></td><td>870 km</td><td data-i="tm6"></td></tr>
+<tr><td data-i="r1">Аеропорт Львів — центр міста</td><td>8 km</td><td data-i="tm1">~20 хв</td></tr>
+<tr><td data-i="r7">Львів — аеропорт Жешув (Польща)</td><td>170 km</td><td data-i="tm7">3–5 год</td></tr>
+<tr><td data-i="r2">Львів — Краків</td><td>330 km</td><td data-i="tm2">5–6 год</td></tr>
+<tr><td data-i="r3">Львів — Київ</td><td>540 km</td><td data-i="tm3">6–7 год</td></tr>
+<tr><td data-i="r4">Київ — Варшава</td><td>790 km</td><td data-i="tm4">10–12 год</td></tr>
+<tr><td data-i="r5">Львів — Варшава</td><td>390 km</td><td data-i="tm5">6–7 год</td></tr>
+<tr><td data-i="r6">Львів — Прага</td><td>870 km</td><td data-i="tm6">11–12 год</td></tr>
 </tbody></table></div>
-<p class="note" data-i="rn"></p>
+<p class="note" data-i="rn">Час орієнтовний і залежить від трафіку та черг на кордоні. Вартість назвемо при бронюванні.</p>
 </div></section>
 
 <section id="fleet"><div class="wrap">
-<h2 data-i="n3"></h2><p class="lead" data-i="fl"></p>
+<h2 data-i="n3">Автопарк</h2><p class="lead" data-i="fl">Оберіть авто під кількість пасажирів і багажу.</p>
 <div class="fleet">
-<article class="car empty" data-car="0" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/sedan/1.jpg"></div><p data-i="c1"></p></article>
-<article class="car empty" data-car="1" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/minivan/1.jpg"></div><p data-i="c2"></p></article>
-<article class="car empty" data-car="2" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/premium/1.jpg"></div><p data-i="c3"></p></article>
-<article class="car empty" data-car="3" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/passat/1.jpg"></div><p data-i="c4"></p></article>
+<article class="car empty" data-car="0" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/sedan/1.jpg"></div><p data-i="c1">Седан бізнес-класу Skoda Superb, до 3 пасажирів</p></article>
+<article class="car empty" data-car="1" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/minivan/1.jpg"></div><p data-i="c2">Мінівен Mercedes-Benz V-Class, до 7 пасажирів</p></article>
+<article class="car empty" data-car="2" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/premium/1.jpg"></div><p data-i="c3">Преміум-седан Mercedes-Benz E-Class, до 3 пасажирів</p></article>
+<article class="car empty" data-car="3" role="button" tabindex="0"><div class="ph" data-cover="images/fleet/passat/1.jpg"></div><p data-i="c4">Седан бізнес-класу Volkswagen Passat B8, до 3 пасажирів</p></article>
 </div></div></section>
 
 <section id="contacts" class="contacts"><div class="wrap">
-<h2 data-i="n4"></h2><p class="lead" data-i="cl"></p>
+<h2 data-i="n4">Контакти</h2><p class="lead" data-i="cl">Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.</p>
 <a class="big" href="tel:+380688057132">+38 068 805 71 32</a>
 <div class="chat" style="margin-top:0"><a class="wa" href="https://wa.me/380688057132" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg></a><a class="vb" href="viber://chat?number=%2B380688057132" aria-label="Viber" title="Viber" target="_blank" rel="noopener"><svg><use href="#i-vb"/></svg></a><a class="tg" href="https://t.me/startransfers" aria-label="Telegram" title="Telegram" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg></a><a class="ig" href="https://www.instagram.com/star_transfers" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a></div>
 </div></section>
@@ -168,7 +238,7 @@ footer{background:#0b1226}
 <div class="gal" id="gal" role="dialog" aria-modal="true"><button class="x" id="gx" aria-label="Close">&#10005;</button><div class="in"><h3 id="gt"></h3><div class="gg" id="gg"></div></div></div>
 <div class="lb" id="lb"><button class="x" id="lx" aria-label="Close">&#10005;</button><button class="nv pv" id="lp" aria-label="Previous">&#8249;</button><img id="li" alt=""><button class="nv nx" id="ln" aria-label="Next">&#8250;</button><div class="ct" id="lc"></div></div>
 <div id="toast" role="status"></div>
-<div class="pop" id="pop"><a class="it" href="https://wa.me/380688057132" target="_blank" rel="noopener"><span class="b wa"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>+38 068 805 71 32</small></span></a><a class="it" href="viber://chat?number=%2B380688057132" target="_blank" rel="noopener"><span class="b vb"><svg><use href="#i-vb"/></svg></span><span><b>Viber</b><small>+38 068 805 71 32</small></span></a><a class="it" href="https://t.me/startransfers" target="_blank" rel="noopener"><span class="b tg"><svg><use href="#i-tg"/></svg></span><span><b>Telegram</b><small>@startransfers</small></span></a><a class="it" href="tel:+380688057132"><span class="b call"><svg><use href="#i-ph"/></svg></span><span><b data-i="dc"></b><small>+38 068 805 71 32</small></span></a></div>
+<div class="pop" id="pop"><a class="it" href="https://wa.me/380688057132" target="_blank" rel="noopener"><span class="b wa"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>+38 068 805 71 32</small></span></a><a class="it" href="viber://chat?number=%2B380688057132" target="_blank" rel="noopener"><span class="b vb"><svg><use href="#i-vb"/></svg></span><span><b>Viber</b><small>+38 068 805 71 32</small></span></a><a class="it" href="https://t.me/startransfers" target="_blank" rel="noopener"><span class="b tg"><svg><use href="#i-tg"/></svg></span><span><b>Telegram</b><small>@startransfers</small></span></a><a class="it" href="tel:+380688057132"><span class="b call"><svg><use href="#i-ph"/></svg></span><span><b data-i="dc">Прямий виклик</b><small>+38 068 805 71 32</small></span></a></div>
 <button class="fab" id="fab" aria-label="Contacts" aria-expanded="false" aria-controls="pop">&#9742;</button>
 
 <script>
@@ -182,7 +252,7 @@ rt:"Маршрути трансферу",rl:"Популярні напрямки
 r1:"Аеропорт Львів — центр міста",r2:"Львів — Краків",r3:"Львів — Київ",r4:"Київ — Варшава",r5:"Львів — Варшава",r6:"Львів — Прага",
 rn:"Час орієнтовний і залежить від трафіку та черг на кордоні. Вартість назвемо при бронюванні.",tm1:"~20 хв",tm2:"5–6 год",tm3:"6–7 год",tm4:"10–12 год",tm5:"6–7 год",tm6:"11–12 год",fl:"Оберіть авто під кількість пасажирів і багажу.",
 c1:"Седан бізнес-класу Skoda Superb, до 3 пасажирів",c2:"Мінівен Mercedes-Benz V-Class, до 7 пасажирів",c3:"Преміум-седан Mercedes-Benz E-Class, до 3 пасажирів",c4:"Седан бізнес-класу Volkswagen Passat B8, до 3 пасажирів",
-cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон"},
+cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон",ap:"Трансфер з аеропорту та в аеропорт",apl:"Зустрінемо після прильоту або відвеземо на виліт. Час виїзду й місце зустрічі узгоджуємо індивідуально під ваш рейс, а вартість фіксуємо заздалегідь без прихованих платежів.",apn:"Потрібного аеропорту немає в списку? Напишіть, і ми порахуємо.",ap1:"Львів",ap2:"Жешув",ap3:"Краків",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовіце",r7:"Львів — аеропорт Жешув (Польща)",tm7:"3–5 год"},
 ru:{n1:"О нас",n2:"Маршруты",n3:"Автопарк",n4:"Контакты",
 h1:"Сервис премиальных поездок по Украине и Европе",sub:"Трансферы из аэропортов, междугороднее и международное такси. Цена известна до поездки.",book:"Забронировать",
 a1:"Star Transfers — сервис премиальных трансферов по Украине и Европе, работающий на рынке с 2020 года. Мы специализируемся на индивидуальных поездках без посредников, обеспечивая высокий уровень комфорта, безопасности и пунктуальности. За это время выполнено более 5000 успешных трансферов, включая международные маршруты в Польшу, Молдову, Австрию, Венгрию и другие страны Европы.",
@@ -192,7 +262,7 @@ rt:"Маршруты трансфера",rl:"Популярные направл
 r1:"Аэропорт Львов — центр города",r2:"Львов — Краков",r3:"Львов — Киев",r4:"Киев — Варшава",r5:"Львов — Варшава",r6:"Львов — Прага",
 rn:"Время ориентировочное и зависит от трафика и очередей на границе. Стоимость назовём при бронировании.",tm1:"~20 мин",tm2:"5–6 ч",tm3:"6–7 ч",tm4:"10–12 ч",tm5:"6–7 ч",tm6:"11–12 ч",fl:"Выберите авто под количество пассажиров и багажа.",
 c1:"Седан бизнес-класса Skoda Superb, до 3 пассажиров",c2:"Минивэн Mercedes-Benz V-Class, до 7 пассажиров",c3:"Премиум-седан Mercedes-Benz E-Class, до 3 пассажиров",c4:"Седан бизнес-класса Volkswagen Passat B8, до 3 пассажиров",
-cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон"},
+cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон",ap:"Трансфер из аэропорта и в аэропорт",apl:"Встретим после прилёта или отвезём на вылет. Время выезда и место встречи согласовываем индивидуально под ваш рейс, а стоимость фиксируем заранее без скрытых платежей.",apn:"Нужного аэропорта нет в списке? Напишите, и мы рассчитаем.",ap1:"Львов",ap2:"Жешув",ap3:"Краков",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовице",r7:"Львов — аэропорт Жешув (Польша)",tm7:"3–5 ч"},
 en:{n1:"About us",n2:"Routes",n3:"Fleet",n4:"Contacts",
 h1:"Premium rides across Ukraine and Europe",sub:"Airport transfers, intercity and international taxi. The price is fixed before the trip.",book:"Book now",
 a1:"Star Transfers is a premium transfer service across Ukraine and Europe, operating since 2020. We specialise in private trips without intermediaries, delivering a high level of comfort, safety and punctuality. Over this time we have completed more than 5,000 successful transfers, including international routes to Poland, Moldova, Austria, Hungary and other European countries.",
@@ -202,11 +272,13 @@ rt:"Transfer routes",rl:"Popular destinations. Not on the list? Message us and w
 r1:"Lviv airport — city centre",r2:"Lviv — Kraków",r3:"Lviv — Kyiv",r4:"Kyiv — Warsaw",r5:"Lviv — Warsaw",r6:"Lviv — Prague",
 rn:"Travel time is approximate and depends on traffic and border queues. We confirm the price when you book.",tm1:"~20 min",tm2:"5–6 h",tm3:"6–7 h",tm4:"10–12 h",tm5:"6–7 h",tm6:"11–12 h",fl:"Choose a car for your passengers and luggage.",
 c1:"Business-class Skoda Superb sedan, up to 3 passengers",c2:"Mercedes-Benz V-Class minivan, up to 7 passengers",c3:"Premium Mercedes-Benz E-Class sedan, up to 3 passengers",c4:"Business-class Volkswagen Passat B8 sedan, up to 3 passengers",
-cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone"}};
+cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone",ap:"Airport transfers — to and from the airport",apl:"We meet you after landing or take you to your departure. Pick-up time and meeting point are agreed individually around your flight, and the price is fixed in advance with no hidden fees.",apn:"Your airport is not on the list? Message us and we will calculate it.",ap1:"Lviv",ap2:"Rzeszów",ap3:"Kraków",ap4:"Warsaw",ap5:"Prague",ap6:"Budapest",ap7:"Katowice",r7:"Lviv — Rzeszów airport (Poland)",tm7:"3–5 h"}};
+const TT={uk:"Star Transfers — трансфери Львів, Київ, Краків, Варшава, Прага",ru:"Star Transfers — трансферы Львов, Киев, Краков, Варшава, Прага",en:"Star Transfers — transfers Lviv, Kyiv, Kraków, Warsaw, Prague"};
+const DD={uk:"Трансфер з аеропорту та в аеропорт, поїздки зі Львова та Києва: Краків, Варшава, Прага. Mercedes-Benz і Skoda бізнес-класу, до 7 пасажирів. Бронювання у Telegram та Viber.",ru:"Трансфер из аэропорта и в аэропорт, поездки из Львова и Киева: Краков, Варшава, Прага. Mercedes-Benz и Skoda бизнес-класса, до 7 пассажиров. Бронирование в Telegram и Viber.",en:"Airport transfers to and from the airport, trips from Lviv and Kyiv: Kraków, Warsaw, Prague. Business-class Mercedes-Benz and Skoda, up to 7 passengers. Book via Telegram or Viber."};
 function setLang(l){document.documentElement.lang=l;
 document.querySelectorAll('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
 document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
-document.title="Star Transfers — "+T[l].h1;
+document.title=TT[l];var md=document.querySelector('meta[name="description"]');if(md)md.content=DD[l];
 try{localStorage.setItem('lang',l)}catch(e){}}
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 let L='uk';try{L=localStorage.getItem('lang')||''}catch(e){}
