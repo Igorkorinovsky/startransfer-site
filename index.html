@@ -282,7 +282,7 @@ document.title=TT[l];var md=document.querySelector('meta[name="description"]');i
 try{localStorage.setItem('lang',l)}catch(e){}}
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 let L='uk';try{L=localStorage.getItem('lang')||''}catch(e){}
-if(!T[L]){const n=(navigator.language||'uk').slice(0,2);L=T[n]?n:'uk'}
+if(!T[L]){const bot=/bot|crawl|spider|slurp|lighthouse|pagespeed/i.test(navigator.userAgent||'');const n=(navigator.language||'uk').slice(0,2);L=(!bot&&T[n])?n:'uk'}
 setLang(L);
 // phone links: on desktop copy the number, on phones dial
 const toast=document.getElementById('toast');let tt;
