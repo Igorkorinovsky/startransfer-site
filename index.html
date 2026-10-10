@@ -126,6 +126,27 @@ h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);marg
 .routes th{color:var(--muted);font-weight:500;font-size:14px}
 .routes td:last-child{color:var(--gold);white-space:nowrap}
 .aps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.aps li{display:flex;gap:12px;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.aps b{color:var(--gold);font-family:Georgia,serif;letter-spacing:.08em}
+.bk{position:fixed;inset:0;z-index:40;background:rgba(5,7,12,.82);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 14px;opacity:0;visibility:hidden;transition:.25s}
+.bk.on{opacity:1;visibility:visible}
+.bkc{position:relative;width:100%;max-width:480px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;margin:auto}
+.bkc h3{font-family:Georgia,serif;font-weight:400;font-size:26px;margin-bottom:16px;padding-right:28px}
+.bkc label{display:block;margin-bottom:12px;font-size:14px;color:var(--muted)}
+.bkc input:not([type=checkbox]),.bkc select,.bkc textarea{display:block;width:100%;margin-top:5px;padding:12px 14px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:10px;font:inherit;font-size:16px}
+.bkc input:focus,.bkc select:focus,.bkc textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.bkc .ck{display:flex;gap:10px;align-items:flex-start}.bkc .ck input{margin-top:3px;width:auto}
+.bkc .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.bkc .x{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+.fm{min-height:20px;font-size:14px;margin:4px 0 10px}.fm.err{color:#ff9a8a}.fm.ok{color:#8fe0a8}
+#bks{border:0;cursor:pointer;width:100%;font-size:16px;font-family:inherit}#bks:disabled{opacity:.6;cursor:wait}
+.bk{background:rgba(10,12,18,.62)}
+.bkc{--bg:#faf6ec;--panel:#fff;--line:#ddd2bd;--text:#16181f;--muted:#5b6070;--gold:#8a6a25;background:#fff;color:#16181f;border-color:#ddd2bd;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.bkc h3{color:#16181f}
+.bkc .x:hover{color:#16181f}
+.bkc input:not([type=checkbox]),.bkc select,.bkc textarea{background:#faf6ec;color:#16181f;border-color:#ddd2bd}
+.bkc input:not([type=checkbox]):focus,.bkc select:focus,.bkc textarea:focus{outline-color:#b89d6a;background:#fff}
+.bkc input[type=checkbox]{accent-color:#8a6a25}
+.fm.err{color:#b3321f}.fm.ok{color:#1e7e45}
+#bks{background:linear-gradient(180deg,#d8c39a,#b89d6a);color:#15120b}
 .scroll{overflow-x:auto}.note{color:var(--muted);font-size:14px;margin-top:14px}
 .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
 .car{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -235,6 +256,21 @@ footer{background:#0b1226}
 </div></section>
 </main>
 <footer><div class="wrap">© 2026 Star Transfers</div></footer>
+<div class="bk" id="bk" role="dialog" aria-modal="true" aria-labelledby="bkt"><div class="bkc"><button class="x" id="bkx" type="button" aria-label="Close">&#10005;</button>
+<h3 id="bkt" data-i="ftitle">Забронювати трансфер</h3>
+<form id="bkf" novalidate>
+<label><span data-i="fname">Ім'я*</span><input name="name" maxlength="80" autocomplete="name"></label>
+<label><span data-i="fphone">Телефон*</span><input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+380 50 123 45 67"></label>
+<label><span data-i="fdate">Дата поїздки</span><input name="date" type="date"></label>
+<label><span data-i="ffrom">Звідки*</span><input name="from" maxlength="120"></label>
+<label><span data-i="fto">Куди*</span><input name="to" maxlength="120"></label>
+<label><span data-i="fcar">Автомобіль</span><select name="car"><option>Skoda Superb</option><option>Mercedes-Benz V-Class</option><option>Mercedes-Benz E-Class</option><option>Volkswagen Passat B8</option><option value="Не важливо" data-i="fany" selected>Не важливо</option></select></label>
+<label><span data-i="fcomment">Коментар (рейс, кількість пасажирів, багаж)</span><textarea name="comment" maxlength="500" rows="3"></textarea></label>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="ck"><input type="checkbox" name="consent"><span data-i="fconsent">Погоджуюсь на обробку персональних даних для зв'язку щодо поїздки</span></label>
+<p class="fm" id="bkm" role="status"></p>
+<button class="btn" type="submit" id="bks" data-i="fsend">Відправити</button>
+</form></div></div>
 <div class="gal" id="gal" role="dialog" aria-modal="true"><button class="x" id="gx" aria-label="Close">&#10005;</button><div class="in"><h3 id="gt"></h3><div class="gg" id="gg"></div></div></div>
 <div class="lb" id="lb"><button class="x" id="lx" aria-label="Close">&#10005;</button><button class="nv pv" id="lp" aria-label="Previous">&#8249;</button><img id="li" alt=""><button class="nv nx" id="ln" aria-label="Next">&#8250;</button><div class="ct" id="lc"></div></div>
 <div id="toast" role="status"></div>
@@ -252,7 +288,7 @@ rt:"Маршрути трансферу",rl:"Популярні напрямки
 r1:"Аеропорт Львів — центр міста",r2:"Львів — Краків",r3:"Львів — Київ",r4:"Київ — Варшава",r5:"Львів — Варшава",r6:"Львів — Прага",
 rn:"Час орієнтовний і залежить від трафіку та черг на кордоні. Вартість назвемо при бронюванні.",tm1:"~20 хв",tm2:"5–6 год",tm3:"6–7 год",tm4:"10–12 год",tm5:"6–7 год",tm6:"11–12 год",fl:"Оберіть авто під кількість пасажирів і багажу.",
 c1:"Седан бізнес-класу Skoda Superb, до 3 пасажирів",c2:"Мінівен Mercedes-Benz V-Class, до 7 пасажирів",c3:"Преміум-седан Mercedes-Benz E-Class, до 3 пасажирів",c4:"Седан бізнес-класу Volkswagen Passat B8, до 3 пасажирів",
-cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон",ap:"Трансфер з аеропорту та в аеропорт",apl:"Зустрінемо після прильоту або відвеземо на виліт. Час виїзду й місце зустрічі узгоджуємо індивідуально під ваш рейс, а вартість фіксуємо заздалегідь без прихованих платежів.",apn:"Потрібного аеропорту немає в списку? Напишіть, і ми порахуємо.",ap1:"Львів",ap2:"Жешув",ap3:"Краків",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовіце",r7:"Львів — аеропорт Жешув (Польща)",tm7:"3–5 год"},
+cl:"Напишіть маршрут, дату й кількість пасажирів, і ми швидко відповімо.",cp:"Номер скопійовано",dc:"Прямий виклик",ph:"Телефон",ap:"Трансфер з аеропорту та в аеропорт",apl:"Зустрінемо після прильоту або відвеземо на виліт. Час виїзду й місце зустрічі узгоджуємо індивідуально під ваш рейс, а вартість фіксуємо заздалегідь без прихованих платежів.",apn:"Потрібного аеропорту немає в списку? Напишіть, і ми порахуємо.",ap1:"Львів",ap2:"Жешув",ap3:"Краків",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовіце",r7:"Львів — аеропорт Жешув (Польща)",tm7:"3–5 год",ftitle:"Забронювати трансфер",fname:"Ім'я*",fphone:"Телефон*",fdate:"Дата поїздки",ffrom:"Звідки*",fto:"Куди*",fcar:"Автомобіль",fany:"Не важливо",fcomment:"Коментар (рейс, кількість пасажирів, багаж)",fconsent:"Погоджуюсь на обробку персональних даних для зв'язку щодо поїздки",fsend:"Відправити",fsending:"Відправляємо…",fok:"Дякуємо! Ми отримали заявку й скоро зв'яжемось.",ferr:"Не вдалося відправити. Зателефонуйте або напишіть у месенджер.",freq:"Заповніть ім'я, телефон, звідки й куди та підтвердіть згоду."},
 ru:{n1:"О нас",n2:"Маршруты",n3:"Автопарк",n4:"Контакты",
 h1:"Сервис премиальных поездок по Украине и Европе",sub:"Трансферы из аэропортов, междугороднее и международное такси. Цена известна до поездки.",book:"Забронировать",
 a1:"Star Transfers — сервис премиальных трансферов по Украине и Европе, работающий на рынке с 2020 года. Мы специализируемся на индивидуальных поездках без посредников, обеспечивая высокий уровень комфорта, безопасности и пунктуальности. За это время выполнено более 5000 успешных трансферов, включая международные маршруты в Польшу, Молдову, Австрию, Венгрию и другие страны Европы.",
@@ -262,7 +298,7 @@ rt:"Маршруты трансфера",rl:"Популярные направл
 r1:"Аэропорт Львов — центр города",r2:"Львов — Краков",r3:"Львов — Киев",r4:"Киев — Варшава",r5:"Львов — Варшава",r6:"Львов — Прага",
 rn:"Время ориентировочное и зависит от трафика и очередей на границе. Стоимость назовём при бронировании.",tm1:"~20 мин",tm2:"5–6 ч",tm3:"6–7 ч",tm4:"10–12 ч",tm5:"6–7 ч",tm6:"11–12 ч",fl:"Выберите авто под количество пассажиров и багажа.",
 c1:"Седан бизнес-класса Skoda Superb, до 3 пассажиров",c2:"Минивэн Mercedes-Benz V-Class, до 7 пассажиров",c3:"Премиум-седан Mercedes-Benz E-Class, до 3 пассажиров",c4:"Седан бизнес-класса Volkswagen Passat B8, до 3 пассажиров",
-cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон",ap:"Трансфер из аэропорта и в аэропорт",apl:"Встретим после прилёта или отвезём на вылет. Время выезда и место встречи согласовываем индивидуально под ваш рейс, а стоимость фиксируем заранее без скрытых платежей.",apn:"Нужного аэропорта нет в списке? Напишите, и мы рассчитаем.",ap1:"Львов",ap2:"Жешув",ap3:"Краков",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовице",r7:"Львов — аэропорт Жешув (Польша)",tm7:"3–5 ч"},
+cl:"Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.",cp:"Номер скопирован",dc:"Прямой звонок",ph:"Телефон",ap:"Трансфер из аэропорта и в аэропорт",apl:"Встретим после прилёта или отвезём на вылет. Время выезда и место встречи согласовываем индивидуально под ваш рейс, а стоимость фиксируем заранее без скрытых платежей.",apn:"Нужного аэропорта нет в списке? Напишите, и мы рассчитаем.",ap1:"Львов",ap2:"Жешув",ap3:"Краков",ap4:"Варшава",ap5:"Прага",ap6:"Будапешт",ap7:"Катовице",r7:"Львов — аэропорт Жешув (Польша)",tm7:"3–5 ч",ftitle:"Забронировать трансфер",fname:"Имя*",fphone:"Телефон*",fdate:"Дата поездки",ffrom:"Откуда*",fto:"Куда*",fcar:"Автомобиль",fany:"Не важно",fcomment:"Комментарий (рейс, количество пассажиров, багаж)",fconsent:"Согласен на обработку персональных данных для связи по поездке",fsend:"Отправить",fsending:"Отправляем…",fok:"Спасибо! Мы получили заявку и скоро свяжемся.",ferr:"Не удалось отправить. Позвоните или напишите в мессенджер.",freq:"Заполните имя, телефон, откуда и куда и подтвердите согласие."},
 en:{n1:"About us",n2:"Routes",n3:"Fleet",n4:"Contacts",
 h1:"Premium rides across Ukraine and Europe",sub:"Airport transfers, intercity and international taxi. The price is fixed before the trip.",book:"Book now",
 a1:"Star Transfers is a premium transfer service across Ukraine and Europe, operating since 2020. We specialise in private trips without intermediaries, delivering a high level of comfort, safety and punctuality. Over this time we have completed more than 5,000 successful transfers, including international routes to Poland, Moldova, Austria, Hungary and other European countries.",
@@ -272,9 +308,23 @@ rt:"Transfer routes",rl:"Popular destinations. Not on the list? Message us and w
 r1:"Lviv airport — city centre",r2:"Lviv — Kraków",r3:"Lviv — Kyiv",r4:"Kyiv — Warsaw",r5:"Lviv — Warsaw",r6:"Lviv — Prague",
 rn:"Travel time is approximate and depends on traffic and border queues. We confirm the price when you book.",tm1:"~20 min",tm2:"5–6 h",tm3:"6–7 h",tm4:"10–12 h",tm5:"6–7 h",tm6:"11–12 h",fl:"Choose a car for your passengers and luggage.",
 c1:"Business-class Skoda Superb sedan, up to 3 passengers",c2:"Mercedes-Benz V-Class minivan, up to 7 passengers",c3:"Premium Mercedes-Benz E-Class sedan, up to 3 passengers",c4:"Business-class Volkswagen Passat B8 sedan, up to 3 passengers",
-cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone",ap:"Airport transfers — to and from the airport",apl:"We meet you after landing or take you to your departure. Pick-up time and meeting point are agreed individually around your flight, and the price is fixed in advance with no hidden fees.",apn:"Your airport is not on the list? Message us and we will calculate it.",ap1:"Lviv",ap2:"Rzeszów",ap3:"Kraków",ap4:"Warsaw",ap5:"Prague",ap6:"Budapest",ap7:"Katowice",r7:"Lviv — Rzeszów airport (Poland)",tm7:"3–5 h"}};
+cl:"Send us the route, date and number of passengers and we will reply quickly.",cp:"Number copied",dc:"Direct call",ph:"Phone",ap:"Airport transfers — to and from the airport",apl:"We meet you after landing or take you to your departure. Pick-up time and meeting point are agreed individually around your flight, and the price is fixed in advance with no hidden fees.",apn:"Your airport is not on the list? Message us and we will calculate it.",ap1:"Lviv",ap2:"Rzeszów",ap3:"Kraków",ap4:"Warsaw",ap5:"Prague",ap6:"Budapest",ap7:"Katowice",r7:"Lviv — Rzeszów airport (Poland)",tm7:"3–5 h",ftitle:"Book a transfer",fname:"Name*",fphone:"Phone*",fdate:"Trip date",ffrom:"From*",fto:"To*",fcar:"Car",fany:"No preference",fcomment:"Comment (flight, passengers, luggage)",fconsent:"I agree to the processing of my personal data to arrange the trip",fsend:"Send",fsending:"Sending…",fok:"Thank you! We received your request and will contact you soon.",ferr:"Could not send. Please call us or message us in a messenger.",freq:"Please fill in name, phone, from and to, and confirm consent."}};
 const TT={uk:"Star Transfers — трансфери Львів, Київ, Краків, Варшава, Прага",ru:"Star Transfers — трансферы Львов, Киев, Краков, Варшава, Прага",en:"Star Transfers — transfers Lviv, Kyiv, Kraków, Warsaw, Prague"};
 const DD={uk:"Трансфер з аеропорту та в аеропорт, поїздки зі Львова та Києва: Краків, Варшава, Прага. Mercedes-Benz і Skoda бізнес-класу, до 7 пасажирів. Бронювання у Telegram та Viber.",ru:"Трансфер из аэропорта и в аэропорт, поездки из Львова и Киева: Краков, Варшава, Прага. Mercedes-Benz и Skoda бизнес-класса, до 7 пассажиров. Бронирование в Telegram и Viber.",en:"Airport transfers to and from the airport, trips from Lviv and Kyiv: Kraków, Warsaw, Prague. Business-class Mercedes-Benz and Skoda, up to 7 passengers. Book via Telegram or Viber."};
+const bk=document.getElementById('bk'),bkf=document.getElementById('bkf'),bkm=document.getElementById('bkm'),bks=document.getElementById('bks');let bkT=0;
+const q=n=>bkf.elements[n];
+function bkOpen(){bk.classList.add('on');document.body.style.overflow='hidden';bkT=Date.now();bkm.textContent='';bkm.className='fm';q('date').min=new Date().toISOString().slice(0,10);setTimeout(()=>q('name').focus(),60)}
+function bkClose(){bk.classList.remove('on');document.body.style.overflow=''}
+document.querySelectorAll('a.btn[href="#contacts"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();bkOpen()}));
+document.getElementById('bkx').onclick=bkClose;bk.addEventListener('click',e=>{if(e.target===bk)bkClose()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bk.classList.contains('on'))bkClose()});
+bkf.addEventListener('submit',async e=>{e.preventDefault();const t=T[document.documentElement.lang]||T.uk;
+const phone=q('phone').value.replace(/[^\d+]/g,'');
+if(q('name').value.trim().length<2||phone.replace(/\D/g,'').length<9||!q('from').value.trim()||!q('to').value.trim()||!q('consent').checked){bkm.className='fm err';bkm.textContent=t.freq;return}
+bks.disabled=true;bkm.className='fm';bkm.textContent=t.fsending;
+try{const r=await fetch('/api/booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:q('name').value.trim(),phone,date:q('date').value,from:q('from').value.trim(),to:q('to').value.trim(),car:q('car').value,comment:q('comment').value.trim(),website:q('website').value,consent:q('consent').checked,lang:document.documentElement.lang,elapsed:Date.now()-bkT})});
+if(!r.ok)throw 0;bkm.className='fm ok';bkm.textContent=t.fok;bkf.reset();setTimeout(bkClose,3500)}catch(_){bkm.className='fm err';bkm.textContent=t.ferr}
+bks.disabled=false});
 function setLang(l){document.documentElement.lang=l;
 document.querySelectorAll('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
 document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
