@@ -1,7 +1,7 @@
 // Cloudflare Worker: serves the static site and handles POST /api/booking -> Telegram (no database).
 // Secrets (Cloudflare -> Workers & Pages -> startransfer-site -> Settings -> Variables and Secrets):
 //   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
-const CARS = ['Skoda Superb', 'Mercedes-Benz V-Class', 'Mercedes-Benz E-Class', 'Volkswagen Passat B8', 'Не важливо'];
+const CARS = ['Комфорт', 'Бізнес', 'Преміум', 'Мінівен', 'Не важливо'];
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const str = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
 const reply = (ok, status = 200) => new Response(JSON.stringify({ ok }), {
