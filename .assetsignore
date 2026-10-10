@@ -1,0 +1,5 @@
+wrangler.jsonc
+src
+functions
+.git
+.gitignore
