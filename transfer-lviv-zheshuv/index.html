@@ -189,6 +189,24 @@ h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);marg
 .bkc label.bad{color:#b3321f}
 .bkc label.bad input:not([type=checkbox]),.bkc label.bad select,.bkc label.bad textarea{border-color:#c0392b;background:#fff3f0}
 .bkc label.bad input[type=checkbox]{outline:2px solid #c0392b;outline-offset:2px}
+.bkc .phl{position:relative}
+.bkc .phone-in{display:flex;align-items:center;margin-top:5px;background:#faf6ec;border:1px solid #ddd2bd;border-radius:10px}
+.bkc .phone-in:focus-within{outline:2px solid #b89d6a;outline-offset:1px;background:#fff}
+.bkc .phone-in input:not([type=checkbox]){margin:0;border:0;background:transparent;padding-left:6px;min-width:0;flex:1}
+.bkc .phone-in input:focus{outline:0;background:transparent}
+.bkc .cc-btn{display:flex;align-items:center;gap:5px;padding:0 6px 0 12px;height:46px;background:none;border:0;cursor:pointer;color:#5b6070;font:inherit}
+.bkc .cc-btn img{width:22px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12);object-fit:cover}
+.bkc .cc-btn i{font-style:normal;font-size:11px}
+.bkc .cc-code{color:#16181f;font-size:16px;padding-left:4px;border-left:1px solid #ddd2bd;padding:3px 0 3px 8px}
+.bkc .cc-list{position:absolute;left:0;right:0;top:100%;z-index:5;margin-top:4px;max-height:260px;overflow-y:auto;background:#fff;border:1px solid #ddd2bd;border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.18);padding:4px}
+.bkc .cc-list[hidden]{display:none}
+.bkc .cc-list span{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:7px;color:#16181f;cursor:pointer;font-size:15px}
+.bkc .cc-list span:hover,.bkc .cc-list span.on{background:#f3ecdc}
+.bkc .cc-list img{width:22px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12);object-fit:cover;flex:none}
+.bkc .cc-list b{margin-left:auto;font-weight:500;color:#5b6070}
+.bkc .cc-list hr{border:0;border-top:1px solid #eee5d3;margin:4px 6px}
+.bkc label.bad .phone-in{border-color:#c0392b;background:#fff3f0}
+.bkc label.bad .phone-in:focus-within{outline-color:#c0392b}
 .bkc label.bad input:not([type=checkbox]):focus,.bkc label.bad select:focus,.bkc label.bad textarea:focus{outline-color:#c0392b}
 .scroll{overflow-x:auto}.note{color:var(--muted);font-size:14px;margin-top:14px}
 .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
@@ -394,7 +412,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px}.fl
 <h3 id="bkt" data-i="ftitle">Забронювати трансфер</h3>
 <form id="bkf" novalidate>
 <label><span data-i="fname">Ім'я*</span><input name="name" maxlength="80" autocomplete="name"></label>
-<label><span data-i="fphone">Телефон*</span><input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+380 50 123 45 67"></label>
+<label for="bk-phone" class="phl"><span data-i="fphone">Телефон*</span><span class="phone-in"><button type="button" class="cc-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Код країни"><img src="/images/flags/ua.svg" width="22" height="16" alt=""><i>▾</i></button><span class="cc-code">+380</span><input id="bk-phone" name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel-national" placeholder="50 123 45 67"></span><span class="cc-list" role="listbox" hidden></span></label>
 <label><span data-i="fdate">Дата поїздки</span><input name="date" type="date"></label>
 <label><span data-i="ffrom">Звідки*</span><input name="from" maxlength="120" value="Львів"></label>
 <label><span data-i="fto">Куди*</span><input name="to" maxlength="120" value="Жешув"></label>
@@ -453,12 +471,28 @@ document.querySelectorAll('a.btn[href="#contacts"]').forEach(a=>a.addEventListen
 document.getElementById('bkx').onclick=bkClose;bk.addEventListener('click',e=>{if(e.target===bk)bkClose()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bk.classList.contains('on'))bkClose()});
 ['input','change'].forEach(ev=>bkf.addEventListener(ev,e=>{const l=e.target.closest('label');if(l)l.classList.remove('bad')}));
+const CC=[['ua',380],['pl',48],['cz',420],['sk',421],['hu',36],['ro',40],['md',373],['de',49],['at',43],0,['be',32],['bg',359],['ca',1],['ch',41],['dk',45],['ee',372],['es',34],['fi',358],['fr',33],['gb',44],['ge',995],['gr',30],['hr',385],['ie',353],['il',972],['it',39],['lt',370],['lv',371],['nl',31],['no',47],['pt',351],['se',46],['si',386],['tr',90],['us',1]];
+const ccBtn=bkf.querySelector('.cc-btn'),ccImg=ccBtn.querySelector('img'),ccCode=bkf.querySelector('.cc-code'),ccList=bkf.querySelector('.cc-list'),FB=ccImg.getAttribute('src').replace(/ua\.svg$/,'');
+const fsrc=c=>typeof FL!=='undefined'?FL[c]:FB+c+'.svg';let cc=CC[0];
+function ccSet(c){cc=c;ccImg.src=fsrc(c[0]);ccCode.textContent='+'+c[1];q('phone').placeholder=c[0]==='ua'?'50 123 45 67':'';ccList.querySelectorAll('span').forEach(x=>x.classList.toggle('on',x.dataset.c===c[0]))}
+function ccFill(){let dn;try{dn=new Intl.DisplayNames([document.documentElement.lang||'uk'],{type:'region'})}catch(_){}
+ccList.innerHTML=CC.map(c=>c?'<span role="option" data-c="'+c[0]+'"><img loading="lazy" src="'+fsrc(c[0])+'" alt="">'+(dn?dn.of(c[0].toUpperCase()):c[0].toUpperCase())+'<b>+'+c[1]+'</b></span>':'<hr>').join('');ccSet(cc)}
+function ccOpen(o){const L=document.documentElement.lang;if(o&&ccList.dataset.l!==L){ccFill();ccList.dataset.l=L}ccList.hidden=!o;ccBtn.setAttribute('aria-expanded',o);if(o){const a=ccList.querySelector('.on');if(a)ccList.scrollTop=a.offsetTop-4}}
+ccBtn.addEventListener('click',e=>{e.preventDefault();ccOpen(ccList.hidden)});
+ccList.addEventListener('click',e=>{e.preventDefault();const x=e.target.closest('span[data-c]');if(!x)return;ccSet(CC.find(c=>c&&c[0]===x.dataset.c));ccOpen(false);q('phone').focus()});
+document.addEventListener('click',e=>{if(!ccList.hidden&&!e.target.closest('.phl'))ccOpen(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ccList.hidden){e.stopImmediatePropagation();ccOpen(false)}},true);
+{const r=(navigator.language||'').split('-')[1],c=r&&CC.find(c=>c&&c[0]===r.toLowerCase());if(c)ccSet(c)}
+function fullPhone(){const raw=q('phone').value.trim();let d=raw.replace(/\D/g,'');
+if(/^(\+|00)/.test(raw)){if(raw[0]!=='+')d=d.slice(2);return d}
+const k=String(cc[1]);if(d.startsWith(k)&&d.length>=k.length+9)return d;
+if(cc[0]!=='it')d=d.replace(/^0/,'');return k+d}
 bkf.addEventListener('submit',async e=>{e.preventDefault();const t=T[document.documentElement.lang]||T.uk;
-const phone=q('phone').value.replace(/[^\d+]/g,'');
+const phone='+'+fullPhone();
 const bad=[];const mark=(n,ok)=>{const el=q(n);el.closest('label').classList.toggle('bad',!ok);if(!ok)bad.push(el)};
 const hasL=/\p{L}/u,rawPh=q('phone').value.trim(),digs=phone.replace(/\D/g,''),today=new Date().toISOString().slice(0,10);
 mark('name',/^\p{L}[\p{L}\s'’.-]{1,79}$/u.test(q('name').value.trim()));
-mark('phone',/^\+?[\d\s()-]{9,25}$/.test(rawPh)&&digs.length>=9&&digs.length<=15);
+mark('phone',/^\+?[\d\s()-]{4,25}$/.test(rawPh)&&digs.length>=9&&digs.length<=15&&phone.length-String(cc[1]).length>=7);
 mark('date',!q('date').value||q('date').value>=today);
 mark('from',q('from').value.trim().length>=2&&hasL.test(q('from').value));
 mark('to',q('to').value.trim().length>=2&&hasL.test(q('to').value));
