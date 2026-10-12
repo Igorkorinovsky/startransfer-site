@@ -417,7 +417,7 @@ ccBtn.addEventListener('click',e=>{e.preventDefault();ccOpen(ccList.hidden)});
 ccList.addEventListener('click',e=>{e.preventDefault();const x=e.target.closest('span[data-c]');if(!x)return;ccSet(CC.find(c=>c&&c[0]===x.dataset.c));ccOpen(false);q('phone').focus()});
 document.addEventListener('click',e=>{if(!ccList.hidden&&!e.target.closest('.phl'))ccOpen(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ccList.hidden){e.stopImmediatePropagation();ccOpen(false)}},true);
-{const r=(navigator.language||'').split('-')[1],c=r&&CC.find(c=>c&&c[0]===r.toLowerCase());if(c)ccSet(c)}
+for(const l of navigator.languages||[navigator.language||'']){const[a,r]=l.split('-');if(!r||a==='en')continue;const c=CC.find(c=>c&&c[0]===r.toLowerCase());if(c){ccSet(c);break}}
 function fullPhone(){const raw=q('phone').value.trim();let d=raw.replace(/\D/g,'');
 if(/^(\+|00)/.test(raw)){if(raw[0]!=='+')d=d.slice(2);return d}
 const k=String(cc[1]);if(d.startsWith(k)&&d.length>=k.length+9)return d;
