@@ -52,12 +52,47 @@ async function booking(request, env) {
 }
 
 
+// Old route slugs (Ukrainian transliteration) -> new slugs. 301 so Google moves the pages to the new URLs.
+const OLD_SLUGS = {
+  'transfer-khelm-varshava': 'transfer-chelm-warsaw',
+  'transfer-kyiv-budapesht': 'transfer-kyiv-budapest',
+  'transfer-kyiv-bukharest': 'transfer-kyiv-bucharest',
+  'transfer-kyiv-krakiv': 'transfer-kyiv-krakow',
+  'transfer-kyiv-kyshyniv': 'transfer-kyiv-chisinau',
+  'transfer-kyiv-lyublin': 'transfer-kyiv-lublin',
+  'transfer-kyiv-praha': 'transfer-kyiv-prague',
+  'transfer-kyiv-varshava': 'transfer-kyiv-warsaw',
+  'transfer-kyiv-viden': 'transfer-kyiv-vienna',
+  'transfer-kyiv-zheshuv': 'transfer-kyiv-rzeszow',
+  'transfer-lviv-bratyslava': 'transfer-lviv-bratislava',
+  'transfer-lviv-budapesht': 'transfer-lviv-budapest',
+  'transfer-lviv-katovitse': 'transfer-lviv-katowice',
+  'transfer-lviv-krakiv': 'transfer-lviv-krakow',
+  'transfer-lviv-lyublin': 'transfer-lviv-lublin',
+  'transfer-lviv-peremyshl': 'transfer-lviv-przemysl',
+  'transfer-lviv-praha': 'transfer-lviv-prague',
+  'transfer-lviv-varshava': 'transfer-lviv-warsaw',
+  'transfer-lviv-viden': 'transfer-lviv-vienna',
+  'transfer-lviv-vrotslav': 'transfer-lviv-wroclaw',
+  'transfer-lviv-zheshuv': 'transfer-lviv-rzeszow',
+  'transfer-peremyshl-krakiv': 'transfer-przemysl-krakow',
+  'transfer-peremyshl-varshava': 'transfer-przemysl-warsaw'
+};
+
+function oldSlugRedirect(url) {
+  const m = url.pathname.match(/^\/(ru\/|en\/)?(transfer-[a-z]+-[a-z]+)\/?(index\.html)?$/);
+  if (!m || !OLD_SLUGS[m[2]]) return null;
+  return Response.redirect(url.origin + '/' + (m[1] || '') + OLD_SLUGS[m[2]] + '/' + url.search, 301);
+}
+
 export default {
   async fetch(request, env) {
-    const { pathname } = new URL(request.url);
-    if (pathname === '/api/booking') {
+    const url = new URL(request.url);
+    if (url.pathname === '/api/booking') {
       return request.method === 'POST' ? booking(request, env) : reply(false, 405);
     }
+    const moved = oldSlugRedirect(url);
+    if (moved) return moved;
     return env.ASSETS.fetch(request);
   }
 };
