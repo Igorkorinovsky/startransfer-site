@@ -79,10 +79,19 @@ const OLD_SLUGS = {
   'transfer-peremyshl-varshava': 'transfer-przemysl-warsaw'
 };
 
+// Routes taken off the site: lviv-przemysl now runs the other way, the rest go back to the routes list.
+const MOVED = { 'transfer-lviv-przemysl': 'transfer-przemysl-lviv' };
+const REMOVED = ['transfer-lviv-lublin', 'transfer-lviv-wroclaw', 'transfer-lviv-berlin', 'transfer-kyiv-lublin'];
+
 function oldSlugRedirect(url) {
   const m = url.pathname.match(/^\/(ru\/|en\/)?(transfer-[a-z]+-[a-z]+)\/?(index\.html)?$/);
-  if (!m || !OLD_SLUGS[m[2]]) return null;
-  return Response.redirect(url.origin + '/' + (m[1] || '') + OLD_SLUGS[m[2]] + '/' + url.search, 301);
+  if (!m) return null;
+  const lang = m[1] || '';
+  let slug = OLD_SLUGS[m[2]] || m[2];
+  slug = MOVED[slug] || slug;
+  if (REMOVED.includes(slug)) return Response.redirect(url.origin + '/' + lang + '#routes', 301);
+  if (slug === m[2]) return null;
+  return Response.redirect(url.origin + '/' + lang + slug + '/' + url.search, 301);
 }
 
 export default {
