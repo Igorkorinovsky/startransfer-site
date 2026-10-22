@@ -79,8 +79,8 @@ const OLD_SLUGS = {
   'transfer-peremyshl-varshava': 'transfer-przemysl-warsaw'
 };
 
-// Routes taken off the site: lviv-przemysl now runs the other way, the rest go back to the routes list.
-const MOVED = { 'transfer-lviv-przemysl': 'transfer-przemysl-lviv' };
+// Routes taken off the site go back to the routes list.
+const MOVED = {};
 const REMOVED = ['transfer-lviv-lublin', 'transfer-lviv-wroclaw', 'transfer-lviv-berlin', 'transfer-kyiv-lublin'];
 
 function oldSlugRedirect(url) {
