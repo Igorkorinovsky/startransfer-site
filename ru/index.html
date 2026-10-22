@@ -85,6 +85,67 @@
      "name": "Katowice"
     }
    ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Куда вы возите?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По Украине и в Европу: Польша, Чехия, Австрия, Венгрия, Словакия, Румыния, Молдова. Полный список смотрите в «Популярных маршрутах», поездку в другие города рассчитаем по запросу."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит трансфер?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Цена указана за автомобиль, а не за пассажира, и зависит от маршрута и класса авто. Например, Львов-Краков от 300 €. Точную сумму фиксируем при бронировании."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Есть ли трансфер из аэропорта и в аэропорт?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да. Встречаем в аэропорту и довозим до аэропорта. Сообщите номер рейса при бронировании: водитель будет ориентироваться на фактическое время прибытия, ожидание бесплатное."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Есть ли детское кресло?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, детское кресло предоставляем по предварительному запросу. Укажите это при бронировании."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как оплатить поездку?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Оплата наличными водителю или на счёт. Цену за авто фиксируем при бронировании, без доплат в дороге."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Вы работаете круглосуточно?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, принимаем заказы и выполняем поездки 24/7, в том числе ночные выезды и встречи ранних и поздних рейсов."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли отменить или перенести поездку?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да. Отмена бесплатная, если сообщить нам минимум за 24 часа до поездки. Дату или время можно перенести, согласовав с менеджером."
+     }
+    }
+   ]
   }
  ]
 }
@@ -282,6 +343,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px}.fl
 @media(max-width:760px){header .wrap{gap:8px;padding:0 14px}.tel{font-size:13.5px}.logo{gap:8px;letter-spacing:.1em}.logo b{display:block;font-size:17px}.logo i{display:block;margin:3px 0 0;font-size:9.5px;letter-spacing:.2em}.lang button{padding:4px 5px}.hero .btn{min-width:210px}}
 @media(max-width:400px){.tel svg{display:none}.hero .chat{gap:9px}.hero .chat a{width:46px;height:46px}}
 @media(prefers-reduced-motion:reduce){.hero .btn,.hero .btn::before,.hero .btn::after{animation:none}.hero .btn::before{display:none}.fab svg,.fab::before,.fab::after{animation:none}.fab::before,.fab::after{display:none}}
+.faq{max-width:820px}.faq details{border-bottom:1px solid var(--line);padding:16px 0}.faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:#e9c987;font-size:22px;line-height:1}.faq details[open] summary::after{content:"\2212"}.faq p{color:var(--muted);margin:10px 0 0;max-width:46em}
 </style>
 </head>
 <body>
@@ -335,6 +398,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px}.fl
 <article class="car empty" data-car="2" role="button" tabindex="0"><div class="ph" data-cover="/images/fleet/premium/1.webp"></div><p data-i="c3">Премиум-седан Mercedes-Benz E-Class, до 3 пассажиров</p></article>
 <article class="car empty" data-car="3" role="button" tabindex="0"><div class="ph" data-cover="/images/fleet/passat/1.webp"></div><p data-i="c4">Седан бизнес-класса Volkswagen Passat B8, до 3 пассажиров</p></article>
 </div></div></section>
+
+<section id="faq"><div class="wrap">
+<h2>FAQ – ЧАСТЫЕ ВОПРОСЫ</h2>
+<div class="faq"><details><summary>Куда вы возите?</summary><p>По Украине и в Европу: Польша, Чехия, Австрия, Венгрия, Словакия, Румыния, Молдова. Полный список смотрите в «Популярных маршрутах», поездку в другие города рассчитаем по запросу.</p></details><details><summary>Сколько стоит трансфер?</summary><p>Цена указана за автомобиль, а не за пассажира, и зависит от маршрута и класса авто. Например, Львов-Краков от 300 €. Точную сумму фиксируем при бронировании.</p></details><details><summary>Есть ли трансфер из аэропорта и в аэропорт?</summary><p>Да. Встречаем в аэропорту и довозим до аэропорта. Сообщите номер рейса при бронировании: водитель будет ориентироваться на фактическое время прибытия, ожидание бесплатное.</p></details><details><summary>Есть ли детское кресло?</summary><p>Да, детское кресло предоставляем по предварительному запросу. Укажите это при бронировании.</p></details><details><summary>Как оплатить поездку?</summary><p>Оплата наличными водителю или на счёт. Цену за авто фиксируем при бронировании, без доплат в дороге.</p></details><details><summary>Вы работаете круглосуточно?</summary><p>Да, принимаем заказы и выполняем поездки 24/7, в том числе ночные выезды и встречи ранних и поздних рейсов.</p></details><details><summary>Можно ли отменить или перенести поездку?</summary><p>Да. Отмена бесплатная, если сообщить нам минимум за 24 часа до поездки. Дату или время можно перенести, согласовав с менеджером.</p></details></div>
+</div></section>
 
 <section id="contacts" class="contacts"><div class="wrap">
 <h2 data-i="n4">Контакты</h2><p class="lead" data-i="cl">Напишите маршрут, дату и количество пассажиров, и мы быстро ответим.</p>
