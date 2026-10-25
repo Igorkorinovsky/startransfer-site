@@ -433,6 +433,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://startransfers.com.ua/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://startransfers.com.ua/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://startransfers.com.ua/ru/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startransfers.com.ua/en/privacy/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://startransfers.com.ua/ru/</loc>
     <xhtml:link rel="alternate" hreflang="uk" href="https://startransfers.com.ua/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://startransfers.com.ua/ru/"/>
@@ -865,6 +873,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://startransfers.com.ua/ru/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://startransfers.com.ua/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://startransfers.com.ua/ru/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startransfers.com.ua/en/privacy/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://startransfers.com.ua/en/</loc>
     <xhtml:link rel="alternate" hreflang="uk" href="https://startransfers.com.ua/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://startransfers.com.ua/ru/"/>
@@ -1295,5 +1311,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://startransfers.com.ua/en/umovy/"/>
     <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://startransfers.com.ua/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://startransfers.com.ua/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://startransfers.com.ua/ru/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startransfers.com.ua/en/privacy/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.3</priority>
   </url>
 </urlset>
