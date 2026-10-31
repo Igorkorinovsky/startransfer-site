@@ -238,6 +238,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px}.fl
 @media(max-width:900px){.hero .hin.rp{padding-top:205px}}
 .pp{padding-bottom:8px!important}.pp h2{margin-bottom:14px}.pp p{max-width:860px;margin:0 0 12px;line-height:1.65}.pp .tlist{margin:6px 0 14px}.pp a{color:var(--gold-d);border-bottom:1px solid currentColor}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CJCBHFK3M1"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-CJCBHFK3M1');
+(function(){var f=window.fetch;window.fetch=function(u){var p=f.apply(this,arguments);if(String(u).indexOf('/api/booking')>-1){p.then(function(r){if(r.ok)gtag('event','generate_lead',{form:'booking'})}).catch(function(){})}return p};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';
+if(a.matches('a.btn[href="#contacts"]'))gtag('event','booking_click');
+else if(h.indexOf('tel:')===0)gtag('event','contact_click',{method:'phone'});
+else if(h.indexOf('wa.me')>-1)gtag('event','contact_click',{method:'whatsapp'});
+else if(h.indexOf('viber:')===0)gtag('event','contact_click',{method:'viber'});
+else if(h.indexOf('t.me/')>-1)gtag('event','contact_click',{method:'telegram'});},true)})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -288,7 +301,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px}.fl
 
 <section class="lt pp" style="padding-top:0"><div class="wrap">
 <h2>6. Файлы cookie</h2>
-<p>Сайт может использовать технические файлы cookie, необходимые для его работы (например, чтобы запомнить выбранный язык). Мы не используем рекламные cookie.</p>
+<p>Сайт использует технические файлы cookie, необходимые для его работы (например, чтобы запомнить выбранный язык), а также файлы cookie Google (Google Analytics и Google Ads), чтобы считать посещения и оценивать эффективность рекламы. Эти данные обезличены и не содержат вашего имени или телефона. Отключить cookie можно в настройках браузера.</p>
 </div></section>
 
 <section class="lt pp" style="padding-top:0"><div class="wrap">
