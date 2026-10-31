@@ -432,7 +432,7 @@ mark('consent',q('consent').checked);
 if(bad.length){bkm.className='fm err';bkm.textContent=t.freq;bad[0].focus();return}
 bks.disabled=true;bkm.className='fm';bkm.textContent=t.fsending;
 try{const r=await fetch('/api/booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:q('name').value.trim(),phone,date:q('date').value,from:q('from').value.trim(),to:q('to').value.trim(),car:q('car').value,comment:q('comment').value.trim(),website:q('website').value,consent:q('consent').checked,lang:document.documentElement.lang,elapsed:Date.now()-bkT})});
-if(!r.ok)throw 0;bkm.className='fm ok';bkm.textContent=t.fok;bkf.reset();setTimeout(bkClose,3500)}catch(_){bkm.className='fm err';bkm.textContent=t.ferr}
+if(!r.ok)throw 0;bkm.className='fm ok';bkm.textContent=t.fok;bkf.reset();setTimeout(()=>{location.href=({uk:'/dyakuyemo/',ru:'/ru/dyakuyemo/',en:'/en/dyakuyemo/'})[document.documentElement.lang]||'/dyakuyemo/'},800)}catch(_){bkm.className='fm err';bkm.textContent=t.ferr}
 bks.disabled=false});
 function setLang(l){document.documentElement.lang=l;
 document.querySelectorAll('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
